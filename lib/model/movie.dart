@@ -4,7 +4,7 @@
 
 import 'models.dart';
 
-class Movie {
+class Movie extends BaseModel {
   bool adult;
   List<Genre> genres;
   int id;
