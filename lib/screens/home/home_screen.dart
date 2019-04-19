@@ -3,6 +3,7 @@
 // license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_moviehub/widgets/list/movie_list_view.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -12,7 +13,7 @@ class HomeScreen extends StatelessWidget {
         title: Text('Flutter MovieHub Demo'),
       ),
       body: Center(
-        child: Text('Demo'),
+        child: MovieListView(),
       ),
     );
   }

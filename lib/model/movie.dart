@@ -10,15 +10,16 @@ class Movie extends BaseModel {
   int id;
   String originalTitle;
   String overview;
-  double voteAverage;
+  num voteAverage;
   int runtime;
   String releaseDate;
   String tagline;
   String title;
+  String posterPath;
 
   Movie(Map<String, dynamic> data) {
     this.adult = data['adult'];
-    this.genres = data['genres'];
+    // this.genres = data['genres'];
     this.id = data['id'];
     this.originalTitle = data['original_title'];
     this.overview = data['overview'];
@@ -27,5 +28,6 @@ class Movie extends BaseModel {
     this.releaseDate = data['release_date'];
     this.tagline = data['tagline'];
     this.title = data['title'];
+    this.posterPath = data['poster_path'];
   }
 }

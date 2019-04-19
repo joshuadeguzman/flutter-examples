@@ -10,7 +10,7 @@ import 'package:flutter_moviehub/model/models.dart';
 class ApiProvider {
   Client client = Client();
   final apiKey = '973e0b034af17e62d03ca343795ac965';
-  final baseUrl = 'http://api.themoviedb.org/3/movie/';
+  final baseUrl = 'https://api.themoviedb.org/3/movie';
 
   Future<MovieList> getPopularMovies() async {
     final response = await client.get('$baseUrl/popular?api_key=$apiKey');

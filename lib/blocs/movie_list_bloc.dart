@@ -7,7 +7,7 @@ import 'package:flutter_moviehub/model/models.dart';
 import 'package:rxdart/rxdart.dart';
 
 class MovieListBloc extends BaseBloc<MovieList> {
-  Observable<MovieList> popularMoviesList() => fetcher.stream;
+  Observable<MovieList> get popularMoviesList => fetcher.stream;
 
   getPopularMovies() async {
     MovieList movieList = await repository.getPopularMovies();
