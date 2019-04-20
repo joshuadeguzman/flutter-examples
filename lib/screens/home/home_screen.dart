@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_moviehub/widgets/list/movie_list_view.dart';
 import 'package:flutter_moviehub/widgets/views/section_header_view.dart';
+import 'package:flutter_moviehub/widgets/views/showcase_banner_view.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -13,12 +14,15 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Flutter MovieHub Demo'),
       ),
+      backgroundColor: Colors.white,
       body: ScrollConfiguration(
         behavior: ScrollBehavior(),
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
+              _buildShowcaseBannerView(context),
               _buildPopularListView(),
+              _buildPopularListView(), // TODO: Remove this
             ],
           ),
         ),
@@ -26,14 +30,20 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  _buildShowcaseBannerView(BuildContext context) {
+    return Container(
+      child: buildShowcaseBannerView(
+          context,
+          '',
+          _buildPopularListView()),
+    );
+  }
+
   _buildPopularListView() {
     return Container(
-      margin: EdgeInsets.only(
-        top: 10,
-      ),
       child: Column(
         children: <Widget>[
-          buildSectionHeaderView('Popular'),
+          buildSectionHeaderView('POPULAR'),
           MovieListView(),
         ],
       ),
