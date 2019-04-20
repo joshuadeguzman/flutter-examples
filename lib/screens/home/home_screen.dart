@@ -12,8 +12,25 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Flutter MovieHub Demo'),
       ),
-      body: Center(
-        child: MovieListView(),
+      body: ScrollConfiguration(
+        behavior: ScrollBehavior(),
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              _buildPopularListView(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  _buildPopularListView() {
+    return Container(
+      child: Column(
+        children: <Widget>[
+          MovieListView()
+        ],
       ),
     );
   }
