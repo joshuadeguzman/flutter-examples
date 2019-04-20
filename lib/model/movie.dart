@@ -16,6 +16,7 @@ class Movie extends BaseModel {
   String tagline;
   String title;
   String posterPath;
+  String backdropPath;
 
   Movie(Map<String, dynamic> data) {
     this.adult = data['adult'];
@@ -29,5 +30,6 @@ class Movie extends BaseModel {
     this.tagline = data['tagline'];
     this.title = data['title'];
     this.posterPath = data['poster_path'];
+    this.backdropPath = data['backdrop_path'];
   }
 }

@@ -20,7 +20,7 @@ Widget buildShowcaseItemView(Movie movie) {
     clipBehavior: Clip.antiAliasWithSaveLayer,
     child: Image.network(
       // https://developers.themoviedb.org/3/getting-started/images
-      'https://image.tmdb.org/t/p/w500${movie.posterPath}',
+      'https://image.tmdb.org/t/p/w500${movie.backdropPath}',
       fit: BoxFit.cover,
       // width: 300,
     ),
