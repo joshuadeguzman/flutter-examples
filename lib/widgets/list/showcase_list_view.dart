@@ -8,6 +8,7 @@ import 'package:flutter_moviehub/model/models.dart';
 import 'package:flutter_moviehub/widgets/items/showcase_item_view.dart';
 import 'package:flutter_moviehub/widgets/list/base_list_view.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class ShowcaseListView extends StatefulWidget {
   @override
@@ -19,6 +20,7 @@ class ShowcaseListView extends StatefulWidget {
 class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
   String currentMovieTitle = '';
   String currentMovieDescription = '';
+  double currentMovieRating = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +51,7 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
     setState(() {
       currentMovieTitle = movie.title;
       currentMovieDescription = movie.overview;
+      currentMovieRating = movie.voteAverage / 2;
     });
   }
 
@@ -149,6 +152,13 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
                   style: TextStyle(color: Colors.white, fontSize: 12.0),
                 ),
                 onPressed: () {},
+              ),
+              SmoothStarRating(
+                rating: currentMovieRating,
+                allowHalfRating: true,
+                size: 12,
+                starCount: 5,
+                color: Colors.white,
               ),
             ],
           )
