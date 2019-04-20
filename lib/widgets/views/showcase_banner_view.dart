@@ -27,8 +27,8 @@ Widget buildShowcaseBannerView(
               begin: FractionalOffset.topCenter,
               end: FractionalOffset.bottomCenter,
               colors: [
-                Colors.red.withOpacity(0.0),
-                Colors.white,
+                Colors.black.withOpacity(0.0),
+                Colors.black,
               ],
               stops: [0.0, 1],
             ),

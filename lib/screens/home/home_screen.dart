@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Flutter MovieHub Demo'),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       body: ScrollConfiguration(
         behavior: ScrollBehavior(),
         child: SingleChildScrollView(
