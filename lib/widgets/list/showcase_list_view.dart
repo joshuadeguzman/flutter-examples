@@ -57,40 +57,41 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
     AsyncSnapshot<MovieList> snapshot,
     BuildContext context,
   ) {
-    return Column(
-      children: <Widget>[
-        // https://pub.dartlang.org/packages/carousel_slider
-        CarouselSlider(
-          height: 150,
-          viewportFraction: 0.4,
-          enableInfiniteScroll: true,
-          autoPlay: true,
-          autoPlayInterval: Duration(seconds: 3),
-          autoPlayAnimationDuration: Duration(milliseconds: 800),
-          // autoPlayCurve: Curve.fastOutSlowIn,
-          pauseAutoPlayOnTouch: Duration(seconds: 10),
-          enlargeCenterPage: true,
-          onPageChanged: (index) {
-            var movie = snapshot.data.results[index];
-            onShowcasedMovieChanged(movie);
-          },
-          scrollDirection: Axis.horizontal,
-          items: snapshot.data.results.map(
-            (item) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return Container(
-                    width: MediaQuery.of(context).size.width / 1.25,
-                    margin: EdgeInsets.symmetric(horizontal: 5),
-                    child: buildShowcaseItemView(item),
-                  );
-                },
-              );
+    return Container(
+      child: Column(
+        children: <Widget>[
+          // https://pub.dartlang.org/packages/carousel_slider
+          CarouselSlider(
+            height: 175,
+            viewportFraction: 0.6,
+            enableInfiniteScroll: true,
+            autoPlay: true,
+            autoPlayInterval: Duration(seconds: 3),
+            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            // autoPlayCurve: Curve.fastOutSlowIn,
+            pauseAutoPlayOnTouch: Duration(seconds: 10),
+            enlargeCenterPage: true,
+            onPageChanged: (index) {
+              var movie = snapshot.data.results[index];
+              onShowcasedMovieChanged(movie);
             },
-          ).toList(),
-        ),
-        _buildMovieShowcaseDetails(),
-      ],
+            scrollDirection: Axis.horizontal,
+            items: snapshot.data.results.map(
+              (item) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return Container(
+                      width: MediaQuery.of(context).size.width / 1.25,
+                      child: buildShowcaseItemView(item),
+                    );
+                  },
+                );
+              },
+            ).toList(),
+          ),
+          _buildMovieShowcaseDetails(),
+        ],
+      ),
     );
   }
 
@@ -103,9 +104,9 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
           Text(
             currentMovieTitle,
             overflow: TextOverflow.ellipsis,
-            maxLines: 2,
+            maxLines: 1,
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -114,9 +115,9 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
           Text(
             currentMovieDescription,
             overflow: TextOverflow.ellipsis,
-            maxLines: 2,
+            maxLines: 3,
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.white70,
             ),
           ),
           Row(

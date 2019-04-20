@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 Widget buildShowcaseBannerView(
     BuildContext context, String url, Widget showcaseWidget) {
   var rootWidth = MediaQuery.of(context).size.width;
-  var containerHeight = rootWidth / 1.25;
+  var containerHeight = rootWidth / 1.15;
   return Container(
     child: Stack(
       children: <Widget>[
