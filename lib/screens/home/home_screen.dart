@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_moviehub/widgets/list/movie_list_view.dart';
+import 'package:flutter_moviehub/widgets/views/section_header_view.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -27,9 +28,13 @@ class HomeScreen extends StatelessWidget {
 
   _buildPopularListView() {
     return Container(
+      margin: EdgeInsets.only(
+        top: 10,
+      ),
       child: Column(
         children: <Widget>[
-          MovieListView()
+          buildSectionHeaderView('Popular'),
+          MovieListView(),
         ],
       ),
     );
