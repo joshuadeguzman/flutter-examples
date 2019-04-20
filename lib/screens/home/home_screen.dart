@@ -64,7 +64,7 @@ class HomeScreen extends StatelessWidget {
     return Container(
       child: Column(
         children: <Widget>[
-          buildSectionHeaderView('POPULAR'),
+          buildSectionHeaderView('Popular'),
           MovieListView(),
         ],
       ),
