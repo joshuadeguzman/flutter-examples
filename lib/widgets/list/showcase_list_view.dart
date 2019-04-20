@@ -17,8 +17,6 @@ class ShowcaseListView extends StatefulWidget {
 }
 
 class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
-  int _current = 0;
-
   @override
   Widget build(BuildContext context) {
     // TODO: Convert to dynamic movie type
@@ -49,32 +47,76 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
     AsyncSnapshot<MovieList> snapshot,
     BuildContext context,
   ) {
-    // https://pub.dartlang.org/packages/carousel_slider
-    return CarouselSlider(
-      height: 150,
-      viewportFraction: 0.4,
-      enableInfiniteScroll: true,
-      autoPlay: true,
-      autoPlayInterval: Duration(seconds: 3),
-      autoPlayAnimationDuration: Duration(milliseconds: 800),
-      // autoPlayCurve: Curve.fastOutSlowIn,
-      pauseAutoPlayOnTouch: Duration(seconds: 10),
-      enlargeCenterPage: true,
-      // onPageChanged: callbackFunction,
-      scrollDirection: Axis.horizontal,
-      items: snapshot.data.results.map(
-        (item) {
-          return Builder(
-            builder: (BuildContext context) {
-              return Container(
-                width: MediaQuery.of(context).size.width / 1.25,
-                margin: EdgeInsets.symmetric(horizontal: 5),
-                child: buildShowcaseItemView(item),
+    return Column(
+      children: <Widget>[
+        // https://pub.dartlang.org/packages/carousel_slider
+        CarouselSlider(
+          height: 150,
+          viewportFraction: 0.4,
+          enableInfiniteScroll: true,
+          autoPlay: true,
+          autoPlayInterval: Duration(seconds: 3),
+          autoPlayAnimationDuration: Duration(milliseconds: 800),
+          // autoPlayCurve: Curve.fastOutSlowIn,
+          pauseAutoPlayOnTouch: Duration(seconds: 10),
+          enlargeCenterPage: true,
+          // onPageChanged: callbackFunction,
+          scrollDirection: Axis.horizontal,
+          items: snapshot.data.results.map(
+            (item) {
+              return Builder(
+                builder: (BuildContext context) {
+                  return Container(
+                    width: MediaQuery.of(context).size.width / 1.25,
+                    margin: EdgeInsets.symmetric(horizontal: 5),
+                    child: buildShowcaseItemView(item),
+                  );
+                },
               );
             },
-          );
-        },
-      ).toList(),
+          ).toList(),
+        ),
+        _buildMovieShowcaseTitle(),
+        _buildMovieShowcaseDetails(),
+      ],
+    );
+  }
+
+  Widget _buildMovieShowcaseTitle() {
+    return Container(
+      padding: EdgeInsets.only(left: 10, right: 10),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Text(
+              'Lorem ipsum',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMovieShowcaseDetails() {
+    return Container(
+      padding: EdgeInsets.only(left: 10, right: 10),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Text(
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
