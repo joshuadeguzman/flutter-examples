@@ -78,7 +78,7 @@ class HomeScreen extends StatelessWidget {
     return Container(
       child: Column(
         children: <Widget>[
-          buildSectionHeaderView(MovieType.POPULAR),
+          buildSectionHeaderView('Popular'),
           MovieListView(type: MovieType.POPULAR),
         ],
       ),
@@ -89,7 +89,7 @@ class HomeScreen extends StatelessWidget {
     return Container(
       child: Column(
         children: <Widget>[
-          buildSectionHeaderView(MovieType.TOP_RATED),
+          buildSectionHeaderView('Top Rated'),
           MovieListView(type: MovieType.TOP_RATED),
         ],
       ),
