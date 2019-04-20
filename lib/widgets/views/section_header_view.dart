@@ -14,9 +14,10 @@ Widget buildSectionHeaderView(String title) {
           child: Text(
             title,
             style: TextStyle(
-                color: Colors.white,
-                fontSize: 14.0,
-                fontWeight: FontWeight.bold),
+              color: Colors.white,
+              fontSize: 14.0,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ],

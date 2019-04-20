@@ -20,6 +20,19 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         centerTitle: true,
         elevation: 0.0,
+        leading: Icon(
+          Icons.menu,
+          color: Colors.white,
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.search,
+              color: Colors.white,
+            ),
+            onPressed: () {},
+          ),
+        ],
       ),
       backgroundColor: Colors.black,
       body: ScrollConfiguration(
