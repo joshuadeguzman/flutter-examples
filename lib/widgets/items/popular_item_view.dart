@@ -19,10 +19,10 @@ Widget buildPopularItemView(Movie movie) {
     ),
     clipBehavior: Clip.antiAliasWithSaveLayer,
     child: Image.network(
-        // https://developers.themoviedb.org/3/getting-started/images
-        'https://image.tmdb.org/t/p/w500${movie.posterPath}',
-        fit: BoxFit.cover,
-        width: 150,
-        height: 200),
+      // https://developers.themoviedb.org/3/getting-started/images
+      'https://image.tmdb.org/t/p/w500${movie.posterPath}',
+      fit: BoxFit.cover,
+      width: 125,
+    ),
   );
 }

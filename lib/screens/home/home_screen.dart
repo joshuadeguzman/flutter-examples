@@ -42,7 +42,6 @@ class HomeScreen extends StatelessWidget {
             children: <Widget>[
               _buildShowcaseBannerView(context),
               _buildPopularListView(),
-              _buildPopularListView(), // TODO: Remove this
             ],
           ),
         ),

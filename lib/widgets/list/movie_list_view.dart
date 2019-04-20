@@ -48,7 +48,7 @@ class MovieListViewState extends BaseListView<MovieListView, MovieList> {
   ) {
     var rootWidth = MediaQuery.of(context).size.width; 
     return Container(
-      height: rootWidth / 1.5,
+      height: rootWidth / 1.75,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: snapshot.data.results.length,
