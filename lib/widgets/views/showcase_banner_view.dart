@@ -34,7 +34,15 @@ Widget buildShowcaseBannerView(
             ),
           ),
         ),
-        showcaseWidget
+        Container(
+          height: rootWidth / 1.25,
+          // https://stackoverflow.com/questions/51545768/flutter-vertically-center-column
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[showcaseWidget],
+          ),
+        )
       ],
     ),
   );

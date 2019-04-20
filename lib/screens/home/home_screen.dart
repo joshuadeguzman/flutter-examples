@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_moviehub/widgets/list/movie_list_view.dart';
+import 'package:flutter_moviehub/widgets/list/showcase_list_view.dart';
 import 'package:flutter_moviehub/widgets/views/section_header_view.dart';
 import 'package:flutter_moviehub/widgets/views/showcase_banner_view.dart';
 
@@ -31,11 +32,25 @@ class HomeScreen extends StatelessWidget {
   }
 
   _buildShowcaseBannerView(BuildContext context) {
+    //TODO: Replace with dynamic showcase image
+    const CAPTAIN_MARVEL_IMAGE_URL =
+        'https://static1.squarespace.com/static/588a4776f5e23132a09d23b2/588a4e91be65945e50a36c0e/5c81ebc0a4222f9eb9d52d02/1552056644803/Poster.jpg?format=2500w';
     return Container(
       child: buildShowcaseBannerView(
-          context,
-          '',
-          _buildPopularListView()),
+        context,
+        CAPTAIN_MARVEL_IMAGE_URL,
+        _buildShowcaseListView(),
+      ),
+    );
+  }
+
+  _buildShowcaseListView() {
+    return Container(
+      child: Column(
+        children: <Widget>[
+          ShowcaseListView(),
+        ],
+      ),
     );
   }
 
