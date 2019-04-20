@@ -7,6 +7,7 @@ import 'package:flutter_moviehub/model/movie.dart';
 
 Widget buildPopularItemView(Movie movie) {
   return Card(
+    color: Colors.grey[300],
     margin: EdgeInsets.only(
       bottom: 30,
       left: 10,

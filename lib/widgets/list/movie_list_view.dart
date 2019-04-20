@@ -5,8 +5,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_moviehub/blocs/movie_list_bloc.dart';
 import 'package:flutter_moviehub/model/models.dart';
+import 'package:flutter_moviehub/widgets/items/movie_item_shimmer_view.dart';
 import 'package:flutter_moviehub/widgets/items/popular_item_view.dart';
 import 'package:flutter_moviehub/widgets/list/base_list_view.dart';
+import 'package:shimmer/shimmer.dart';
 
 class MovieListView extends StatefulWidget {
   @override
@@ -32,11 +34,7 @@ class MovieListViewState extends BaseListView<MovieListView, MovieList> {
             ),
           );
         }
-        return Container(
-          child: Center(
-            child: CircularProgressIndicator(),
-          ),
-        );
+        return buildShimmerListView();
       },
     );
   }
@@ -46,7 +44,7 @@ class MovieListViewState extends BaseListView<MovieListView, MovieList> {
     AsyncSnapshot<MovieList> snapshot,
     BuildContext context,
   ) {
-    var rootWidth = MediaQuery.of(context).size.width; 
+    var rootWidth = MediaQuery.of(context).size.width;
     return Container(
       height: rootWidth / 1.75,
       child: ListView.builder(
@@ -54,6 +52,21 @@ class MovieListViewState extends BaseListView<MovieListView, MovieList> {
         itemCount: snapshot.data.results.length,
         itemBuilder: (BuildContext context, int index) {
           return buildPopularItemView(snapshot.data.results[index]);
+        },
+      ),
+    );
+  }
+
+  @override
+  Widget buildShimmerListView() {
+    var rootWidth = MediaQuery.of(context).size.width;
+    return Container(
+      height: rootWidth / 1.75,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: 10,
+        itemBuilder: (BuildContext context, int index) {
+          return buildMovieShimmerItemView();
         },
       ),
     );

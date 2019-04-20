@@ -9,4 +9,6 @@ abstract class BaseListView<T extends StatefulWidget, M> extends State<T> {
     AsyncSnapshot<M> snapshot,
     BuildContext context,
   );
+
+  Widget buildShimmerListView() {}
 }
