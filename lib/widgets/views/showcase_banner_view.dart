@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 Widget buildShowcaseBannerView(
     BuildContext context, String url, Widget showcaseWidget) {
   var rootWidth = MediaQuery.of(context).size.width;
+  var containerHeight = rootWidth / 1.25;
   return Container(
     child: Stack(
       children: <Widget>[
@@ -18,10 +19,10 @@ Widget buildShowcaseBannerView(
                 // https://stackoverflow.com/questions/50713888/how-can-i-show-image-from-network-in-flutter-boxdecoration/50714191
                 image: NetworkImage(url)),
           ),
-          height: rootWidth / 1.25,
+          height: containerHeight,
         ),
         Container(
-          height: rootWidth / 1.25,
+          height: containerHeight,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: FractionalOffset.topCenter,
@@ -35,9 +36,25 @@ Widget buildShowcaseBannerView(
           ),
         ),
         Container(
-          height: rootWidth / 1.25,
-          // https://stackoverflow.com/questions/51545768/flutter-vertically-center-column
+          height: containerHeight,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: FractionalOffset.bottomCenter,
+              end: FractionalOffset.topCenter,
+              colors: [
+                Colors.black.withOpacity(0.0),
+                Colors.black,
+              ],
+              stops: [0.0, 1.0],
+            ),
+          ),
+        ),
+        Container(
+          height: containerHeight,
+          // With respect to the appbar gradient effect
+          padding: EdgeInsets.only(top: 20),
           child: Column(
+            // https://stackoverflow.com/questions/51545768/flutter-vertically-center-column
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[showcaseWidget],
