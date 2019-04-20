@@ -13,7 +13,13 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter MovieHub Demo'),
+        title: Image.asset(
+          'images/moviehub.png',
+          height: 30,
+        ),
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        elevation: 0.0,
       ),
       backgroundColor: Colors.black,
       body: ScrollConfiguration(
