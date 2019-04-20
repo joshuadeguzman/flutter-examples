@@ -11,10 +11,10 @@ Widget buildPopularItemView(Movie movie) {
       bottom: 30,
       left: 10,
     ),
-    elevation: 7.5,
+    elevation: 0.0,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(
-        Radius.circular(15),
+        Radius.circular(10),
       ),
     ),
     clipBehavior: Clip.antiAliasWithSaveLayer,
