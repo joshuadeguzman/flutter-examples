@@ -17,6 +17,9 @@ class ShowcaseListView extends StatefulWidget {
 }
 
 class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
+  String currentMovieTitle = '';
+  String currentMovieDescription = '';
+
   @override
   Widget build(BuildContext context) {
     // TODO: Convert to dynamic movie type
@@ -42,6 +45,13 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
     );
   }
 
+  onShowcasedMovieChanged(Movie movie) {
+    setState(() {
+      currentMovieTitle = movie.title;
+      currentMovieDescription = movie.overview;
+    });
+  }
+
   @override
   Widget buildListView(
     AsyncSnapshot<MovieList> snapshot,
@@ -60,7 +70,10 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
           // autoPlayCurve: Curve.fastOutSlowIn,
           pauseAutoPlayOnTouch: Duration(seconds: 10),
           enlargeCenterPage: true,
-          // onPageChanged: callbackFunction,
+          onPageChanged: (index) {
+            var movie = snapshot.data.results[index];
+            onShowcasedMovieChanged(movie);
+          },
           scrollDirection: Axis.horizontal,
           items: snapshot.data.results.map(
             (item) {
@@ -88,15 +101,20 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            'Lorem ipsum',
+            currentMovieTitle,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
             style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
+              fontSize: 16,
               fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
           ),
+          // https://stackoverflow.com/questions/44579918/flutter-insert-overflow-ellipsis-in-text
           Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...',
+            currentMovieDescription,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
             style: TextStyle(
               color: Colors.white,
             ),
