@@ -7,17 +7,18 @@ import 'package:flutter_moviehub/model/movie.dart';
 
 Widget buildPopularItemView(Movie movie) {
   return Card(
-    elevation: 5,
+    elevation: 15,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(
-        Radius.circular(5),
+        Radius.circular(15),
       ),
     ),
+    clipBehavior: Clip.antiAliasWithSaveLayer,
     child: Image.network(
       // https://developers.themoviedb.org/3/getting-started/images
       'https://image.tmdb.org/t/p/w500${movie.posterPath}',
       fit: BoxFit.cover,
-      width: 250,
+      width: 150,
     ),
   );
 }
