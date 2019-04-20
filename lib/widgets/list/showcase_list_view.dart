@@ -7,6 +7,7 @@ import 'package:flutter_moviehub/blocs/movie_list_bloc.dart';
 import 'package:flutter_moviehub/model/models.dart';
 import 'package:flutter_moviehub/widgets/items/showcase_item_view.dart';
 import 'package:flutter_moviehub/widgets/list/base_list_view.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class ShowcaseListView extends StatefulWidget {
   @override
@@ -16,6 +17,8 @@ class ShowcaseListView extends StatefulWidget {
 }
 
 class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
+  int _current = 0;
+
   @override
   Widget build(BuildContext context) {
     // TODO: Convert to dynamic movie type
@@ -46,16 +49,32 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
     AsyncSnapshot<MovieList> snapshot,
     BuildContext context,
   ) {
-    var rootWidth = MediaQuery.of(context).size.width;
-    return Container(
-      height: rootWidth / 1.75,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: snapshot.data.results.length,
-        itemBuilder: (BuildContext context, int index) {
-          return buildShowcaseItemView(snapshot.data.results[index]);
+    // https://pub.dartlang.org/packages/carousel_slider
+    return CarouselSlider(
+      height: 150,
+      viewportFraction: 0.4,
+      enableInfiniteScroll: true,
+      autoPlay: true,
+      autoPlayInterval: Duration(seconds: 3),
+      autoPlayAnimationDuration: Duration(milliseconds: 800),
+      // autoPlayCurve: Curve.fastOutSlowIn,
+      pauseAutoPlayOnTouch: Duration(seconds: 10),
+      enlargeCenterPage: true,
+      // onPageChanged: callbackFunction,
+      scrollDirection: Axis.horizontal,
+      items: snapshot.data.results.map(
+        (item) {
+          return Builder(
+            builder: (BuildContext context) {
+              return Container(
+                width: MediaQuery.of(context).size.width / 1.25,
+                margin: EdgeInsets.symmetric(horizontal: 5),
+                child: buildShowcaseItemView(item),
+              );
+            },
+          );
         },
-      ),
+      ).toList(),
     );
   }
 }

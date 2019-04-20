@@ -14,7 +14,7 @@ Widget buildShowcaseItemView(Movie movie) {
     elevation: 7.5,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(
-        Radius.circular(15),
+        Radius.circular(5),
       ),
     ),
     clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -22,7 +22,7 @@ Widget buildShowcaseItemView(Movie movie) {
       // https://developers.themoviedb.org/3/getting-started/images
       'https://image.tmdb.org/t/p/w500${movie.posterPath}',
       fit: BoxFit.cover,
-      width: 300,
+      // width: 300,
     ),
   );
 }
