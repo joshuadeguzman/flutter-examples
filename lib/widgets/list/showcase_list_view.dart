@@ -76,44 +76,62 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
             },
           ).toList(),
         ),
-        _buildMovieShowcaseTitle(),
         _buildMovieShowcaseDetails(),
       ],
-    );
-  }
-
-  Widget _buildMovieShowcaseTitle() {
-    return Container(
-      padding: EdgeInsets.only(left: 10, right: 10),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: Text(
-              'Lorem ipsum',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          )
-        ],
-      ),
     );
   }
 
   Widget _buildMovieShowcaseDetails() {
     return Container(
       padding: EdgeInsets.only(left: 10, right: 10),
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Expanded(
-            child: Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...',
-              style: TextStyle(
-                color: Colors.white,
-              ),
+          Text(
+            'Lorem ipsum',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
             ),
+          ),
+          Text(
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          Row(
+            children: <Widget>[
+              FlatButton.icon(
+                padding: EdgeInsets.all(0),
+                icon: Icon(
+                  Icons.timer,
+                  color: Colors.white,
+                  size: 16,
+                ),
+                color: Colors.transparent,
+                label: Text(
+                  'Watch Later',
+                  style: TextStyle(color: Colors.white, fontSize: 12.0),
+                ),
+                onPressed: () {},
+              ),
+              FlatButton.icon(
+                padding: EdgeInsets.all(0),
+                icon: Icon(
+                  Icons.info_outline,
+                  color: Colors.white,
+                  size: 16,
+                ),
+                color: Colors.transparent,
+                label: Text(
+                  'Info',
+                  style: TextStyle(color: Colors.white, fontSize: 12.0),
+                ),
+                onPressed: () {},
+              ),
+            ],
           )
         ],
       ),
