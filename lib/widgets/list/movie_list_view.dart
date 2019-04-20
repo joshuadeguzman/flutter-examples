@@ -23,10 +23,14 @@ class MovieListView extends StatefulWidget {
 
 class MovieListViewState extends BaseListView<MovieListView, MovieList> {
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
     // Retrieve movies based on the requested type
     _getMovies(widget.type);
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return StreamBuilder(
       // Retrieve streams based on the requested movie type
       stream: _getMovieStream(widget.type),
@@ -81,7 +85,7 @@ class MovieListViewState extends BaseListView<MovieListView, MovieList> {
   _getMovies(String type) async {
     if (type == MovieType.UPCOMING) {
       movieListBloc.getUpcomingMovies();
-    } else if (type == MovieType.TOP_RATED){
+    } else if (type == MovieType.TOP_RATED) {
       movieListBloc.getTopRatedMovies();
     } else {
       movieListBloc.getPopularMovies();
@@ -91,7 +95,7 @@ class MovieListViewState extends BaseListView<MovieListView, MovieList> {
   _getMovieStream(String type) {
     if (type == MovieType.UPCOMING) {
       return movieListBloc.upcomingMoviesList;
-    } else if(type == MovieType.TOP_RATED) {
+    } else if (type == MovieType.TOP_RATED) {
       return movieListBloc.topRatedMoviesList;
     } else {
       return movieListBloc.popularMoviesList;

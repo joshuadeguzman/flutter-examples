@@ -23,8 +23,15 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
   double currentMovieRating = 0.0;
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
+
+    // Retrieve upcoming movies
     movieListBloc.getUpcomingMovies();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return StreamBuilder(
       stream: movieListBloc.upcomingMoviesList,
       builder: (context, AsyncSnapshot<MovieList> snapshot) {
