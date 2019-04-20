@@ -3,11 +3,16 @@
 // license that can be found in the LICENSE file.
 
 import 'dart:async';
+import 'package:flutter_moviehub/constants/moviedb.dart';
 import 'package:flutter_moviehub/model/models.dart';
 import 'package:flutter_moviehub/resources/api_provider.dart';
 
 class Repository {
   final apiProvider = ApiProvider();
 
-  Future<MovieList> getPopularMovies() => apiProvider.getPopularMovies();
+  Future<MovieList> getUpcomingMovies() => apiProvider.getMovies(MovieType.UPCOMING);
+
+  Future<MovieList> getPopularMovies() => apiProvider.getMovies(MovieType.POPULAR);
+
+  Future<MovieList> getTopRatedMovies() => apiProvider.getMovies(MovieType.TOP_RATED);
 }

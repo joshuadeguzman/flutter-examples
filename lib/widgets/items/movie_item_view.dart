@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_moviehub/model/movie.dart';
 
-Widget buildPopularItemView(Movie movie) {
+Widget buildMovieItemView(Movie movie) {
   return Card(
     color: Colors.grey[300],
     margin: EdgeInsets.only(

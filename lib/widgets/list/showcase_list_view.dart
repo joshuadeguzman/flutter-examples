@@ -24,10 +24,9 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Convert to dynamic movie type
-    movieListBloc.getPopularMovies();
+    movieListBloc.getUpcomingMovies();
     return StreamBuilder(
-      stream: movieListBloc.popularMoviesList,
+      stream: movieListBloc.upcomingMoviesList,
       builder: (context, AsyncSnapshot<MovieList> snapshot) {
         if (snapshot.hasData) {
           return buildListView(snapshot, context);

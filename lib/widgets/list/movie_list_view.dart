@@ -4,13 +4,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_moviehub/blocs/movie_list_bloc.dart';
+import 'package:flutter_moviehub/constants/moviedb.dart';
 import 'package:flutter_moviehub/model/models.dart';
 import 'package:flutter_moviehub/widgets/items/movie_item_shimmer_view.dart';
-import 'package:flutter_moviehub/widgets/items/popular_item_view.dart';
+import 'package:flutter_moviehub/widgets/items/movie_item_view.dart';
 import 'package:flutter_moviehub/widgets/list/base_list_view.dart';
-import 'package:shimmer/shimmer.dart';
 
 class MovieListView extends StatefulWidget {
+  String type;
+
+  MovieListView({Key key, this.type}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return MovieListViewState();
@@ -20,10 +24,12 @@ class MovieListView extends StatefulWidget {
 class MovieListViewState extends BaseListView<MovieListView, MovieList> {
   @override
   Widget build(BuildContext context) {
-    // TODO: Convert to dynamic movie type
-    movieListBloc.getPopularMovies();
+    // Retrieve movies based on the requested type
+    _getMovies(widget.type);
+
     return StreamBuilder(
-      stream: movieListBloc.popularMoviesList,
+      // Retrieve streams based on the requested movie type
+      stream: _getMovieStream(widget.type),
       builder: (context, AsyncSnapshot<MovieList> snapshot) {
         if (snapshot.hasData) {
           return buildListView(snapshot, context);
@@ -51,7 +57,7 @@ class MovieListViewState extends BaseListView<MovieListView, MovieList> {
         scrollDirection: Axis.horizontal,
         itemCount: snapshot.data.results.length,
         itemBuilder: (BuildContext context, int index) {
-          return buildPopularItemView(snapshot.data.results[index]);
+          return buildMovieItemView(snapshot.data.results[index]);
         },
       ),
     );
@@ -70,5 +76,25 @@ class MovieListViewState extends BaseListView<MovieListView, MovieList> {
         },
       ),
     );
+  }
+
+  _getMovies(String type) async {
+    if (type == MovieType.UPCOMING) {
+      movieListBloc.getUpcomingMovies();
+    } else if (type == MovieType.TOP_RATED){
+      movieListBloc.getTopRatedMovies();
+    } else {
+      movieListBloc.getPopularMovies();
+    }
+  }
+
+  _getMovieStream(String type) {
+    if (type == MovieType.UPCOMING) {
+      return movieListBloc.upcomingMoviesList;
+    } else if(type == MovieType.TOP_RATED) {
+      return movieListBloc.topRatedMoviesList;
+    } else {
+      return movieListBloc.popularMoviesList;
+    }
   }
 }

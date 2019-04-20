@@ -7,11 +7,23 @@ import 'package:flutter_moviehub/model/models.dart';
 import 'package:rxdart/rxdart.dart';
 
 class MovieListBloc extends BaseBloc<MovieList> {
-  Observable<MovieList> get popularMoviesList => fetcher.stream;
+  Observable<MovieList> get upcomingMoviesList => upcomingFetcher.stream;
+  Observable<MovieList> get popularMoviesList => popularFetcher.stream;
+  Observable<MovieList> get topRatedMoviesList => topRatedFetcher.stream;
+
+  getUpcomingMovies() async {
+    MovieList movieList = await repository.getUpcomingMovies();
+    upcomingFetcher.sink.add(movieList);
+  }
 
   getPopularMovies() async {
     MovieList movieList = await repository.getPopularMovies();
-    fetcher.sink.add(movieList);
+    popularFetcher.sink.add(movieList);
+  }
+
+  getTopRatedMovies() async {
+    MovieList movieList = await repository.getTopRatedMovies();
+    topRatedFetcher.sink.add(movieList);
   }
 }
 

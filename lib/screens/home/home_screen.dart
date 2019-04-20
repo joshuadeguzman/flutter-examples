@@ -3,6 +3,7 @@
 // license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_moviehub/constants/moviedb.dart';
 import 'package:flutter_moviehub/widgets/list/movie_list_view.dart';
 import 'package:flutter_moviehub/widgets/list/showcase_list_view.dart';
 import 'package:flutter_moviehub/widgets/views/section_header_view.dart';
@@ -42,6 +43,7 @@ class HomeScreen extends StatelessWidget {
             children: <Widget>[
               _buildShowcaseBannerView(context),
               _buildPopularListView(),
+              _buildTopRatedListView(),
             ],
           ),
         ),
@@ -76,8 +78,19 @@ class HomeScreen extends StatelessWidget {
     return Container(
       child: Column(
         children: <Widget>[
-          buildSectionHeaderView('Popular'),
-          MovieListView(),
+          buildSectionHeaderView(MovieType.POPULAR),
+          MovieListView(type: MovieType.POPULAR),
+        ],
+      ),
+    );
+  }
+
+  _buildTopRatedListView() {
+    return Container(
+      child: Column(
+        children: <Widget>[
+          buildSectionHeaderView(MovieType.TOP_RATED),
+          MovieListView(type: MovieType.TOP_RATED),
         ],
       ),
     );

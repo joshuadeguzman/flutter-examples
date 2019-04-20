@@ -10,5 +10,7 @@ abstract class BaseListView<T extends StatefulWidget, M> extends State<T> {
     BuildContext context,
   );
 
-  Widget buildShimmerListView() {}
+  Widget buildShimmerListView() {
+    return null;
+  }
 }
