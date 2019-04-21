@@ -165,7 +165,7 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
                 color: Colors.white,
               ),
             ],
-          )
+          ),
         ],
       ),
     );
