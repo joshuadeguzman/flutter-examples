@@ -3,6 +3,7 @@
 // license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_moviehub/constants/fonts.dart';
 import 'package:flutter_moviehub/model/movie.dart';
 
 class MovieDetailScreen extends StatefulWidget {
@@ -157,6 +158,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
                         widget.movie.getYear(),
                         style: TextStyle(
                           color: Colors.white,
+                          fontFamily: Fonts.OPEN_SANS,
                           fontSize: 14.0,
                         ),
                       ),
@@ -171,6 +173,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
                         widget.movie.getRuntime(),
                         style: TextStyle(
                           color: Colors.white,
+                          fontFamily: Fonts.OPEN_SANS,
                           fontSize: 14.0,
                         ),
                       ),

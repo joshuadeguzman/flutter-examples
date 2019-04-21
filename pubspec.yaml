@@ -71,5 +71,11 @@ flutter:
         - asset: fonts/Raleway-Regular.ttf
         - asset: fonts/Raleway-Thin.ttf
           weight: 300
+    - family: OpenSans
+      fonts:
+        - asset: fonts/OpenSans-Bold.ttf
+          weight: 700
+        - asset: fonts/OpenSans-Regular.ttf
+        - asset: fonts/OpenSans-Light.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.io/custom-fonts/#from-packages
