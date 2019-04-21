@@ -21,12 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
         fontFamily: 'Raleway',
       ),
-      // TODO: Add routes
-      // home: HomeScreen(),
-      // TODO: Query detail api
-      home: MovieDetailScreen(
-        movie: Movie(getTestMovieData()),
-      ),
+      home: HomeScreen(),
     );
   }
 }
