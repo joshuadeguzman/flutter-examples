@@ -231,6 +231,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
             widget.movie.overview,
             style: TextStyle(
               fontSize: 12,
+              fontFamily: Fonts.OPEN_SANS,
               color: Colors.white,
             ),
           ),
@@ -254,7 +255,11 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
             color: Colors.transparent,
             label: Text(
               'Watch Later',
-              style: TextStyle(color: Colors.white, fontSize: 12.0),
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 12.0,
+                fontFamily: Fonts.OPEN_SANS,
+              ),
             ),
             onPressed: () {},
           ),
@@ -268,7 +273,11 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
             color: Colors.transparent,
             label: Text(
               'My List',
-              style: TextStyle(color: Colors.white, fontSize: 12.0),
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 12.0,
+                fontFamily: Fonts.OPEN_SANS,
+              ),
             ),
             onPressed: () {},
           ),
@@ -282,7 +291,11 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
             color: Colors.transparent,
             label: Text(
               'Share',
-              style: TextStyle(color: Colors.white, fontSize: 12.0),
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 12.0,
+                fontFamily: Fonts.OPEN_SANS,
+              ),
             ),
             onPressed: () {},
           ),

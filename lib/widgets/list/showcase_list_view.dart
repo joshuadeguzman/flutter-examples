@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_moviehub/blocs/movie_list_bloc.dart';
+import 'package:flutter_moviehub/constants/fonts.dart';
 import 'package:flutter_moviehub/model/models.dart';
 import 'package:flutter_moviehub/widgets/items/showcase_item_shimmer_view.dart';
 import 'package:flutter_moviehub/widgets/items/showcase_item_view.dart';
@@ -139,7 +140,11 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
                 color: Colors.transparent,
                 label: Text(
                   'Watch Later',
-                  style: TextStyle(color: Colors.white, fontSize: 12.0),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 12.0,
+                    fontFamily: Fonts.OPEN_SANS,
+                  ),
                 ),
                 onPressed: () {},
               ),
@@ -153,7 +158,11 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
                 color: Colors.transparent,
                 label: Text(
                   'Info',
-                  style: TextStyle(color: Colors.white, fontSize: 12.0),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 12.0,
+                    fontFamily: Fonts.OPEN_SANS,
+                  ),
                 ),
                 onPressed: () {},
               ),
