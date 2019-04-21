@@ -48,4 +48,12 @@ class Movie extends BaseModel {
       return '';
     }
   }
+
+   double getRating() {
+     if(voteAverage != null) {
+       return this.voteAverage / 2;
+     } else {
+       return 0.0;
+     }
+   }
 }

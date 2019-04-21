@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_moviehub/constants/fonts.dart';
 import 'package:flutter_moviehub/model/movie.dart';
+import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class MovieDetailScreen extends StatefulWidget {
   Movie movie;
@@ -151,39 +152,61 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
                     margin: EdgeInsets.only(top: 5),
                     child: Row(
                       children: <Widget>[
-                        Icon(
-                          Icons.calendar_today,
-                          color: Colors.white,
-                          size: 13,
-                        ),
-                        Padding(padding: EdgeInsets.only(left: 2)),
-                        Text(
-                          widget.movie.getYear(),
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: Fonts.OPEN_SANS,
-                            fontSize: 12.0,
+                        Expanded(
+                          child: Row(
+                            children: <Widget>[
+                              Icon(
+                                Icons.calendar_today,
+                                color: Colors.white,
+                                size: 13,
+                              ),
+                              Padding(padding: EdgeInsets.only(left: 2)),
+                              Text(
+                                widget.movie.getYear(),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: Fonts.OPEN_SANS,
+                                  fontSize: 12.0,
+                                ),
+                              ),
+                              Padding(padding: EdgeInsets.only(left: 5)),
+                              Icon(
+                                Icons.timelapse,
+                                color: Colors.white,
+                                size: 14,
+                              ),
+                              Text(
+                                widget.movie.getRuntime(),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: Fonts.OPEN_SANS,
+                                  fontSize: 12.0,
+                                ),
+                              ),
+                              Padding(padding: EdgeInsets.only(left: 5)),
+                              Icon(
+                                Icons.hd,
+                                color: Colors.white,
+                                size: 16,
+                              ),
+                            ],
                           ),
                         ),
-                        Padding(padding: EdgeInsets.only(left: 5)),
-                        Icon(
-                          Icons.timelapse,
-                          color: Colors.white,
-                          size: 14,
-                        ),
-                        Text(
-                          widget.movie.getRuntime(),
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: Fonts.OPEN_SANS,
-                            fontSize: 12.0,
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+                              SmoothStarRating(
+                                rating: widget.movie.getRating(),
+                                allowHalfRating: true,
+                                size: 12,
+                                starCount: 5,
+                                color: Colors.white,
+                              ),
+                            ],
                           ),
-                        ),
-                        Padding(padding: EdgeInsets.only(left: 5)),
-                        Icon(
-                          Icons.hd,
-                          color: Colors.white,
-                          size: 16,
                         ),
                       ],
                     ),
