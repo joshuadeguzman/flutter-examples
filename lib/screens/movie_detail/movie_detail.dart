@@ -141,43 +141,51 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
                   Text(
                     widget.movie.title,
                     style: TextStyle(
-                      fontSize: 24,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
                   ),
-                  Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.date_range,
-                        color: Colors.white,
-                        size: 16,
-                      ),
-                      Padding(padding: EdgeInsets.only(left: 5)),
-                      Text(
-                        widget.movie.getYear(),
-                        style: TextStyle(
+                  Container(
+                    margin: EdgeInsets.only(top: 5),
+                    child: Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.calendar_today,
                           color: Colors.white,
-                          fontFamily: Fonts.OPEN_SANS,
-                          fontSize: 14.0,
+                          size: 13,
                         ),
-                      ),
-                      Padding(padding: EdgeInsets.only(left: 5)),
-                      Icon(
-                        Icons.timer,
-                        color: Colors.white,
-                        size: 16,
-                      ),
-                      Padding(padding: EdgeInsets.only(left: 5)),
-                      Text(
-                        widget.movie.getRuntime(),
-                        style: TextStyle(
+                        Padding(padding: EdgeInsets.only(left: 2)),
+                        Text(
+                          widget.movie.getYear(),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: Fonts.OPEN_SANS,
+                            fontSize: 12.0,
+                          ),
+                        ),
+                        Padding(padding: EdgeInsets.only(left: 5)),
+                        Icon(
+                          Icons.timelapse,
                           color: Colors.white,
-                          fontFamily: Fonts.OPEN_SANS,
-                          fontSize: 14.0,
+                          size: 14,
                         ),
-                      ),
-                    ],
+                        Text(
+                          widget.movie.getRuntime(),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: Fonts.OPEN_SANS,
+                            fontSize: 12.0,
+                          ),
+                        ),
+                        Padding(padding: EdgeInsets.only(left: 5)),
+                        Icon(
+                          Icons.hd,
+                          color: Colors.white,
+                          size: 16,
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -190,6 +198,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
 
   Widget _buildMovieDescription() {
     return Container(
+      margin: EdgeInsets.only(top: 20),
       padding: EdgeInsets.only(left: 10, right: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
