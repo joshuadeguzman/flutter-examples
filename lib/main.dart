@@ -3,6 +3,7 @@
 // license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_moviehub/screens/movie_detail/movie_detail.dart';
 import 'screens/home/home_screen.dart';
 
 void main() => runApp(MyApp());
@@ -17,7 +18,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
         fontFamily: 'Raleway',
       ),
-      home: HomeScreen(),
+      // TODO: Add routes
+      // home: HomeScreen(),
+      home: MovieDetailScreen(),
     );
   }
 }
