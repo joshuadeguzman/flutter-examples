@@ -212,8 +212,8 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
     return SizedBox(
       width: width,
       child: Shimmer.fromColors(
-        baseColor: Colors.grey[400],
-        highlightColor: Colors.grey[100],
+        baseColor: Colors.grey[900],
+        highlightColor: Colors.grey[850],
         child: Container(
           padding: EdgeInsets.only(left: 10, right: 10),
           child: Column(
@@ -222,13 +222,13 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
               Container(
                 width: 200,
                 height: 12.0,
-                color: Colors.white,
+                color: Colors.grey[900],
               ),
               Container(
                 margin: EdgeInsets.only(top: 8),
                 width: 325,
                 height: 40.0,
-                color: Colors.white,
+                color: Colors.grey[900],
               ),
             ],
           ),

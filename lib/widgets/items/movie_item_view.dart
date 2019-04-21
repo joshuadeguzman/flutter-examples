@@ -7,7 +7,7 @@ import 'package:flutter_moviehub/model/movie.dart';
 
 Widget buildMovieItemView(Movie movie) {
   return Card(
-    color: Colors.grey[300],
+    color: Colors.grey[900],
     margin: EdgeInsets.only(
       bottom: 30,
       left: 10,

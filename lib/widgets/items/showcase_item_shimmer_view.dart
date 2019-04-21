@@ -8,14 +8,15 @@ import 'package:shimmer/shimmer.dart';
 Widget buildShowcaseItemShimmerView() {
   return SizedBox(
     child: Shimmer.fromColors(
-      baseColor: Colors.grey[400],
-      highlightColor: Colors.grey[100],
+      baseColor: Colors.grey[900],
+        highlightColor: Colors.grey[850],
       child: Card(
         margin: EdgeInsets.only(
           bottom: 30,
           left: 10,
         ),
         elevation: 7.5,
+        color: Colors.grey[900],
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(5),
