@@ -46,7 +46,7 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
             ),
           );
         }
-        return _buildMovieShowcaseDetailsShimmerView(context);
+        return _buildShowcaseListShimmerView(context);
       },
     );
   }
@@ -174,7 +174,7 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
   Widget _buildShowcaseListShimmerView(
     BuildContext context,
   ) {
-    var shimmerResults = List(3);
+    var shimmerResults = List<String>(3);
     return Container(
       child: Column(
         children: <Widget>[
