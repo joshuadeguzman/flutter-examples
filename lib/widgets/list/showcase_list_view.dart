@@ -46,11 +46,7 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
             ),
           );
         }
-        return Container(
-          child: Center(
-            child: CircularProgressIndicator(),
-          ),
-        );
+        return _buildMovieShowcaseDetailsShimmerView(context);
       },
     );
   }
@@ -93,18 +89,14 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
                   builder: (BuildContext context) {
                     return Container(
                       width: MediaQuery.of(context).size.width / 1.25,
-                      // TODO: Make shimmer switch
-                      // child: buildShowcaseItemView(item),
-                      child: buildShowcaseItemShimmerView(item),
+                      child: buildShowcaseItemView(item),
                     );
                   },
                 );
               },
             ).toList(),
           ),
-          // TODO: Make shimmer switch
-          // _buildMovieShowcaseDetailsView(),
-          _buildMovieShowcaseDetailsShimmerView(context),
+          _buildMovieShowcaseDetailsView(),
         ],
       ),
     );
@@ -174,6 +166,42 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
               ),
             ],
           )
+        ],
+      ),
+    );
+  }
+
+  Widget _buildShowcaseListShimmerView(
+    BuildContext context,
+  ) {
+    var shimmerResults = List(3);
+    return Container(
+      child: Column(
+        children: <Widget>[
+          CarouselSlider(
+            height: 175,
+            viewportFraction: 0.6,
+            enableInfiniteScroll: true,
+            autoPlay: true,
+            autoPlayInterval: Duration(seconds: 3),
+            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            pauseAutoPlayOnTouch: Duration(seconds: 10),
+            enlargeCenterPage: true,
+            scrollDirection: Axis.horizontal,
+            items: shimmerResults.map(
+              (item) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return Container(
+                      width: MediaQuery.of(context).size.width / 1.25,
+                      child: buildShowcaseItemShimmerView(),
+                    );
+                  },
+                );
+              },
+            ).toList(),
+          ),
+          _buildMovieShowcaseDetailsShimmerView(context),
         ],
       ),
     );

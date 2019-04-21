@@ -3,10 +3,9 @@
 // license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_moviehub/model/movie.dart';
 import 'package:shimmer/shimmer.dart';
 
-Widget buildShowcaseItemShimmerView(Movie movie) {
+Widget buildShowcaseItemShimmerView() {
   return SizedBox(
     child: Shimmer.fromColors(
       baseColor: Colors.grey[400],
