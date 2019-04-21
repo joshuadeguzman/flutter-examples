@@ -3,9 +3,13 @@
 // license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_moviehub/widgets/views/banner_view.dart';
+import 'package:flutter_moviehub/model/movie.dart';
 
 class MovieDetailScreen extends StatefulWidget {
+  Movie movie;
+
+  MovieDetailScreen({Key key, this.movie}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return MovieDetailScreenState();
@@ -43,15 +47,158 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
         behavior: ScrollBehavior(),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              buildBannerView(
+              _buildBannerView(
                 context,
-                'https://static1.squarespace.com/static/588a4776f5e23132a09d23b2/588a4e91be65945e50a36c0e/5c81ebc0a4222f9eb9d52d02/1552056644803/Poster.jpg?format=2500w',
+                'https://image.tmdb.org/t/p/w500${widget.movie.backdropPath}',
               ),
-              // TODO: Add more details to the movie
+              _buildMovieDescription(),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildBannerView(
+    BuildContext context,
+    String url,
+  ) {
+    var width = MediaQuery.of(context).size.width;
+    var containerHeight = width / 1.5;
+    return Container(
+      child: Stack(
+        children: <Widget>[
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+              image: DecorationImage(
+                  fit: BoxFit.cover,
+                  // https://stackoverflow.com/questions/50713888/how-can-i-show-image-from-network-in-flutter-boxdecoration/50714191
+                  image: NetworkImage(url)),
+            ),
+            height: containerHeight,
+          ),
+          Container(
+            height: containerHeight,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: FractionalOffset.topCenter,
+                end: FractionalOffset.bottomCenter,
+                colors: [
+                  Colors.black.withOpacity(0.0),
+                  Colors.black,
+                ],
+                stops: [0.0, 1],
+              ),
+            ),
+          ),
+          Container(
+            height: containerHeight,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: FractionalOffset.bottomCenter,
+                end: FractionalOffset.topCenter,
+                colors: [
+                  Colors.black.withOpacity(0.0),
+                  Colors.black,
+                ],
+                stops: [0.0, 1.0],
+              ),
+            ),
+          ),
+          Container(
+            width: width,
+            height: containerHeight,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                FloatingActionButton(
+                  onPressed: () {},
+                  backgroundColor: Colors.red,
+                  child: Icon(
+                    Icons.play_arrow,
+                    color: Colors.white,
+                    size: 40,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            width: width,
+            height: containerHeight,
+            padding: EdgeInsets.only(left: 10, right: 10),
+            child: Container(
+              alignment: Alignment.bottomLeft,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Text(
+                    widget.movie.title,
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.date_range,
+                        color: Colors.white,
+                        size: 16,
+                      ),
+                      Padding(padding: EdgeInsets.only(left: 5)),
+                      Text(
+                        widget.movie.getYear(),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14.0,
+                        ),
+                      ),
+                      Padding(padding: EdgeInsets.only(left: 5)),
+                      Icon(
+                        Icons.timer,
+                        color: Colors.white,
+                        size: 16,
+                      ),
+                      Padding(padding: EdgeInsets.only(left: 5)),
+                      Text(
+                        widget.movie.getRuntime(),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMovieDescription() {
+    return Container(
+      padding: EdgeInsets.only(left: 10, right: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            widget.movie.overview,
+            style: TextStyle(
+              fontSize: 12,
+              color: Colors.white,
+            ),
+          ),
+        ],
       ),
     );
   }

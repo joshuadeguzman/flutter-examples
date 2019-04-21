@@ -32,4 +32,20 @@ class Movie extends BaseModel {
     this.posterPath = data['poster_path'];
     this.backdropPath = data['backdrop_path'];
   }
+
+  String getYear() {
+    if (releaseDate != null) {
+      return DateTime.parse(this.releaseDate).year.toString();
+    } else {
+      return '';
+    }
+  }
+
+  String getRuntime() {
+    if (runtime != null) {
+      return '${this.runtime} mins';
+    } else {
+      return '';
+    }
+  }
 }
