@@ -25,8 +25,17 @@ class MovieListViewState extends BaseListView<MovieListView, MovieList> {
   @override
   void initState() {
     super.initState();
+
     // Retrieve movies based on the requested type
     _getMovies(widget.type);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+
+    // Dispose resources
+    movieListBloc.dispose();
   }
 
   @override
