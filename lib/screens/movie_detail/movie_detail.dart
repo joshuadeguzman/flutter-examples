@@ -6,11 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_moviehub/constants/fonts.dart';
 import 'package:flutter_moviehub/model/movie.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
+import 'package:flutter_moviehub/blocs/movie_detail_bloc.dart';
 
 class MovieDetailScreen extends StatefulWidget {
-  Movie movie;
+  int movieId;
 
-  MovieDetailScreen({Key key, this.movie}) : super(key: key);
+  MovieDetailScreen({Key key, this.movieId}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -19,8 +20,40 @@ class MovieDetailScreen extends StatefulWidget {
 }
 
 class MovieDetailScreenState extends State<MovieDetailScreen> {
+  
+  @override
+  void initState() {
+    super.initState();
+
+    // Retrieve movie details
+    movieDetaiBloc.getMovie(widget.movieId);
+  }
+
   @override
   Widget build(BuildContext context) {
+    return StreamBuilder(
+      stream: movieDetaiBloc.movieDetailStream,
+      builder: (BuildContext context, AsyncSnapshot<Movie> snapshot) {
+        if (snapshot.hasData) {
+          return _buildMovieDetailView(context, snapshot.data);
+        } else if (snapshot.hasError) {
+          return Center(
+            child: Text(
+              snapshot.error.toString(),
+            ),
+          );
+        }
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
+  }
+
+  Widget _buildMovieDetailView(
+    BuildContext context,
+    Movie movie,
+  ) {
     return Scaffold(
       appBar: AppBar(
         title: Image.asset(
@@ -51,11 +84,8 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              _buildBannerView(
-                context,
-                'https://image.tmdb.org/t/p/w500${widget.movie.backdropPath}',
-              ),
-              _buildMovieDescription(),
+              _buildBannerView(context, movie),
+              _buildMovieDescription(movie.overview),
               _buildMovieActions(),
             ],
           ),
@@ -66,10 +96,10 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
 
   Widget _buildBannerView(
     BuildContext context,
-    String url,
+    Movie movie,
   ) {
     var width = MediaQuery.of(context).size.width;
-    var containerHeight = width / 1.5;
+    var height = width / 1.5;
     return Container(
       child: Stack(
         children: <Widget>[
@@ -77,14 +107,14 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
             decoration: BoxDecoration(
               color: Colors.transparent,
               image: DecorationImage(
-                  fit: BoxFit.cover,
-                  // https://stackoverflow.com/questions/50713888/how-can-i-show-image-from-network-in-flutter-boxdecoration/50714191
-                  image: NetworkImage(url)),
+                fit: BoxFit.cover,
+                image: NetworkImage('https://image.tmdb.org/t/p/w500${movie.backdropPath}',),
+              ),
             ),
-            height: containerHeight,
+            height: height,
           ),
           Container(
-            height: containerHeight,
+            height: height,
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: FractionalOffset.topCenter,
@@ -98,7 +128,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
             ),
           ),
           Container(
-            height: containerHeight,
+            height: height,
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: FractionalOffset.bottomCenter,
@@ -113,7 +143,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
           ),
           Container(
             width: width,
-            height: containerHeight,
+            height: height,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -132,7 +162,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
           ),
           Container(
             width: width,
-            height: containerHeight,
+            height: height,
             padding: EdgeInsets.only(left: 10, right: 10),
             child: Container(
               alignment: Alignment.bottomLeft,
@@ -141,7 +171,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   Text(
-                    widget.movie.title,
+                    movie.title,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -162,9 +192,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
                               ),
                               Padding(padding: EdgeInsets.only(left: 2)),
                               Text(
-                                // TODO: Retrieve movie detail from API
-                                'XXXX',
-                                // widget.movie.getYear(),
+                                movie.getYear(),
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontFamily: Fonts.OPEN_SANS,
@@ -178,9 +206,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
                                 size: 14,
                               ),
                               Text(
-                                // TODO: Retrieve movie detail from API
-                                'XX mins',
-                                // widget.movie.getRuntime(),
+                                movie.getRuntime(),
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontFamily: Fonts.OPEN_SANS,
@@ -203,7 +229,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: <Widget>[
                               SmoothStarRating(
-                                rating: widget.movie.getRating(),
+                                rating: movie.getRating(),
                                 allowHalfRating: true,
                                 size: 12,
                                 starCount: 5,
@@ -224,7 +250,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
     );
   }
 
-  Widget _buildMovieDescription() {
+  Widget _buildMovieDescription(String description) {
     return Container(
       margin: EdgeInsets.only(top: 20),
       padding: EdgeInsets.only(left: 10, right: 10),
@@ -232,7 +258,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            widget.movie.overview,
+            description,
             style: TextStyle(
               fontSize: 12,
               fontFamily: Fonts.OPEN_SANS,

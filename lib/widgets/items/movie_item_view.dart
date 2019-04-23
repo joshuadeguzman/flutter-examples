@@ -33,7 +33,7 @@ Widget buildMovieItemView(BuildContext context, Movie movie) {
             context,
             MaterialPageRoute(
               builder: (context) => MovieDetailScreen(
-                    movie: movie,
+                    movieId: movie.id,
                   ),
             ),
           ),

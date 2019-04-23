@@ -15,4 +15,6 @@ class Repository {
   Future<MovieList> getPopularMovies() => apiProvider.getMovies(MovieType.POPULAR);
 
   Future<MovieList> getTopRatedMovies() => apiProvider.getMovies(MovieType.TOP_RATED);
+
+  Future<Movie> getMovie(int id) => apiProvider.getMovie(id);
 }
