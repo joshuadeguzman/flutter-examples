@@ -4,26 +4,40 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_moviehub/model/movie.dart';
+import 'package:flutter_moviehub/resources/test_movie_content.dart';
+import 'package:flutter_moviehub/screens/movie_detail/movie_detail.dart';
 
-Widget buildMovieItemView(Movie movie) {
-  return Card(
-    color: Colors.grey[900],
-    margin: EdgeInsets.only(
-      bottom: 30,
-      left: 10,
-    ),
-    elevation: 0.0,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(
-        Radius.circular(10),
+Widget buildMovieItemView(BuildContext context, Movie movie) {
+  return InkWell(
+    child: Card(
+      color: Colors.grey[900],
+      margin: EdgeInsets.only(
+        bottom: 30,
+        left: 10,
+      ),
+      elevation: 0.0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(10),
+        ),
+      ),
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      child: Image.network(
+        // https://developers.themoviedb.org/3/getting-started/images
+        'https://image.tmdb.org/t/p/w500${movie.posterPath}',
+        fit: BoxFit.cover,
+        width: 125,
       ),
     ),
-    clipBehavior: Clip.antiAliasWithSaveLayer,
-    child: Image.network(
-      // https://developers.themoviedb.org/3/getting-started/images
-      'https://image.tmdb.org/t/p/w500${movie.posterPath}',
-      fit: BoxFit.cover,
-      width: 125,
-    ),
+    onTap: () => {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MovieDetailScreen(
+                    movie: movie,
+                  ),
+            ),
+          ),
+        },
   );
 }

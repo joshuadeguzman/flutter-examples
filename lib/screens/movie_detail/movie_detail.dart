@@ -162,7 +162,9 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
                               ),
                               Padding(padding: EdgeInsets.only(left: 2)),
                               Text(
-                                widget.movie.getYear(),
+                                // TODO: Retrieve movie detail from API
+                                'XXXX',
+                                // widget.movie.getYear(),
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontFamily: Fonts.OPEN_SANS,
@@ -176,7 +178,9 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
                                 size: 14,
                               ),
                               Text(
-                                widget.movie.getRuntime(),
+                                // TODO: Retrieve movie detail from API
+                                'XX mins',
+                                // widget.movie.getRuntime(),
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontFamily: Fonts.OPEN_SANS,

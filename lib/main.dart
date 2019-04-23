@@ -17,6 +17,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
         fontFamily: 'Raleway',
+        // TODO: Experiment with CupertinoTransition for Android
+        // https://stackoverflow.com/questions/50196913/how-to-change-navigation-animation-using-flutter
+        pageTransitionsTheme: PageTransitionsTheme(
+          builders: {
+            TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+          },
+        ),
       ),
       home: HomeScreen(),
     );

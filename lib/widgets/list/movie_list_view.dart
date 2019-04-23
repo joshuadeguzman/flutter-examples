@@ -61,7 +61,7 @@ class MovieListViewState extends BaseListView<MovieListView, MovieList> {
         scrollDirection: Axis.horizontal,
         itemCount: snapshot.data.results.length,
         itemBuilder: (BuildContext context, int index) {
-          return buildMovieItemView(snapshot.data.results[index]);
+          return buildMovieItemView(context, snapshot.data.results[index]);
         },
       ),
     );
