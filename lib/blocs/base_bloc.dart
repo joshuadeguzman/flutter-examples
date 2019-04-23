@@ -8,13 +8,6 @@ import 'package:rxdart/subjects.dart';
 
 abstract class BaseBloc<T extends BaseModel> {
   final repository = Repository();
-  final upcomingFetcher = PublishSubject<T>();
-  final popularFetcher = PublishSubject<T>();
-  final topRatedFetcher = PublishSubject<T>();
 
-  dispose() {
-    upcomingFetcher.close();
-    popularFetcher.close();
-    topRatedFetcher.close();
-  }
+  dispose() {}
 }

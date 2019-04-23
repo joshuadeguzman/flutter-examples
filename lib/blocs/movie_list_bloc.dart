@@ -7,6 +7,10 @@ import 'package:flutter_moviehub/model/models.dart';
 import 'package:rxdart/rxdart.dart';
 
 class MovieListBloc extends BaseBloc<MovieList> {
+  final upcomingFetcher = PublishSubject<MovieList>();
+  final popularFetcher = PublishSubject<MovieList>();
+  final topRatedFetcher = PublishSubject<MovieList>();
+
   Observable<MovieList> get upcomingMoviesList => upcomingFetcher.stream;
   Observable<MovieList> get popularMoviesList => popularFetcher.stream;
   Observable<MovieList> get topRatedMoviesList => topRatedFetcher.stream;
@@ -24,6 +28,14 @@ class MovieListBloc extends BaseBloc<MovieList> {
   getTopRatedMovies() async {
     MovieList movieList = await repository.getTopRatedMovies();
     topRatedFetcher.sink.add(movieList);
+  }
+
+  @override
+  dispose() {
+    super.dispose();
+    upcomingFetcher.close();
+    popularFetcher.close();
+    topRatedFetcher.close();
   }
 }
 
