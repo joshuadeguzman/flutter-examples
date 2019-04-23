@@ -11,14 +11,24 @@ class ApiProvider {
   Client client = Client();
   final apiKey = '973e0b034af17e62d03ca343795ac965';
   final baseUrl = 'https://api.themoviedb.org/3/movie';
-  
+
   Future<MovieList> getMovies(String type) async {
     final response = await client.get('$baseUrl/$type?api_key=$apiKey');
     if (response.statusCode == HttpStatus.ok) {
       print(response.request.url.toString());
       return MovieList(json.decode(response.body));
-    } else{
+    } else {
       throw Exception('Failed to load movies');
+    }
+  }
+
+  Future<Movie> getMovie(int id) async {
+    final response = await client.get('$baseUrl/$id?api_key=$apiKey');
+    if (response.statusCode == HttpStatus.ok) {
+      print(response.request.url.toString());
+      return Movie(json.decode(response.body));
+    } else {
+      throw Exception('Failed to load movie');
     }
   }
 }
