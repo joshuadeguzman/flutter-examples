@@ -4,7 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_moviehub/model/movie.dart';
-import 'package:flutter_moviehub/screens/movie_detail/movie_detail.dart';
+import 'package:flutter_moviehub/screens/movie_detail/movie_detail_screen.dart';
 
 Widget buildShowcaseItemView(BuildContext context, Movie movie) {
   return InkWell(
