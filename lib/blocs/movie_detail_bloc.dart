@@ -2,12 +2,11 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+import 'package:flutter_moviehub/blocs/base_bloc.dart';
 import 'package:flutter_moviehub/model/movie.dart';
-import 'package:flutter_moviehub/resources/repository.dart';
 import 'package:rxdart/rxdart.dart';
 
-class MovieDetailBloc {
-  final repository = Repository();
+class MovieDetailBloc extends BaseBloc<Movie> {
   final fetcher = PublishSubject<Movie>();
   Observable<Movie> get movieDetailStream => fetcher.stream;
 
@@ -16,7 +15,9 @@ class MovieDetailBloc {
     fetcher.sink.add(movie);
   }
 
+  @override
   dispose() {
+    super.dispose();
     fetcher.close();
   }
 }
