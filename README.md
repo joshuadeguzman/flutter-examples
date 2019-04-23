@@ -6,7 +6,7 @@
 
 ## Flutter MovieHub
 
- A simple Flutter application that showcases movies from the TheMovieDB API
+ A simple Flutter application that retrieves movies from the TheMovieDB API using BLoC Pattern
 
 #### Overview
 
