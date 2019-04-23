@@ -8,6 +8,15 @@
 
  A simple Flutter application that showcases movies from the TheMovieDB API
 
+#### Overview
+
+- Flutter Framework
+- TheMovieDB API
+- BLoC Pattern
+- Beautiful UI
+- Carousel
+- Shimmer Loading Implementaion
+
 #### Demo
 
 ![demo-1](https://github.com/joshuadeguzman/flutter_moviehub/blob/master/.github/demo_1.gif)
