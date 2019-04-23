@@ -30,6 +30,14 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    
+    // Dispose resources
+    movieDetaiBloc.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return StreamBuilder(
       stream: movieDetaiBloc.movieDetailStream,
