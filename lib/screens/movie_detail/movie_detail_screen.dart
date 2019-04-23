@@ -33,8 +33,9 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
   void dispose() {
     super.dispose();
     
+    // TODO: Possible memory leak, should check out for BLoC providers to re-initialize bloc objects
     // Dispose resources
-    movieDetaiBloc.dispose();
+    // movieDetaiBloc.dispose();
   }
 
   @override
