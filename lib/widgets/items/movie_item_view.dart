@@ -4,7 +4,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_moviehub/model/movie.dart';
-import 'package:flutter_moviehub/resources/test_movie_content.dart';
 import 'package:flutter_moviehub/screens/movie_detail/movie_detail.dart';
 
 Widget buildMovieItemView(BuildContext context, Movie movie) {

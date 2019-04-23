@@ -85,12 +85,12 @@ class ShowcaseListViewState extends BaseListView<ShowcaseListView, MovieList> {
             },
             scrollDirection: Axis.horizontal,
             items: snapshot.data.results.map(
-              (item) {
+              (movie) {
                 return Builder(
                   builder: (BuildContext context) {
                     return Container(
                       width: MediaQuery.of(context).size.width / 1.25,
-                      child: buildShowcaseItemView(item),
+                      child: buildShowcaseItemView(context, movie),
                     );
                   },
                 );
