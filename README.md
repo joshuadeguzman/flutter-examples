@@ -18,6 +18,8 @@ A simple Flutter application that retrieves movies from the TheMovieDB API using
 - [ ] Watch Later
 - [ ] Info Modal
 - [ ] Solid BLoC Architecture Implementation
+- [ ] Flare Animations
+- [ ] Custom Dart Package Sample
 
 #### Overview
 
