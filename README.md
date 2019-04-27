@@ -28,7 +28,7 @@ A simple Flutter application that retrieves movies from the TheMovieDB API using
 - BLoC Pattern
 - Beautiful UI
 - Carousel
-- Shimmer Loading Implementaion
+- Shimmer Loading Implementation
 
 #### Demo
 
