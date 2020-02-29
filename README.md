@@ -19,7 +19,8 @@ Collection of Flutter Apps
 - Keybase [@joshuadeguzman](https://keybase.io/joshuadeguzman)
 
 ### If this helped you, please don't forget to show some 💙
-- [⭐](https://github.com/joshuadeguzman/flutter-examples/stargazers) this repo
+
+[⭐](https://github.com/joshuadeguzman/flutter-examples/stargazers) this repo or follow me on:
 - Github [@joshuadeguzman](https://github.com/joshuadeguzman)
 - Medium [@joshua.deguzman](https://medium.com/@joshua.deguzman)
 
