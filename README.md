@@ -4,12 +4,13 @@
 
 Collection of Flutter Apps
 
-||||
-|---|---|---|
-|<img src="flutter_moviehub/.github/demo_1.gif" width="200" height="400" />|<img src="flutter_moviehub/.github/demo_1.gif" width="200" height="400" />|<img src="flutter_moviehub/.github/demo_1.gif" width="200" height="400" />|
+|Flutter Moviehub|Flutter Firestore CRUD|
+|---|---|
+|<img src="flutter_moviehub/.github/demo_1.gif" width="200" height="400" />|<img src="flutter_firestore_crud/.github/demo_1.gif" width="200" height="400" />|
 
 ## Example Apps
 1. [Flutter Moviehub](https://github.com/joshuadeguzman/flutter-examples/flutter_moviehub)
+2. [Flutter Firestore CRUD](https://github.com/joshuadeguzman/flutter-examples/flutter_firestore_crud)
 
 ## Contact
 
