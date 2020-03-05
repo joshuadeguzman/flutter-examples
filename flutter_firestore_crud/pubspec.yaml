@@ -1,0 +1,37 @@
+name: flutter_firestore_crud
+description: A new Flutter project.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.7.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.2
+  shared_preferences: ^0.5.3+4
+  font_awesome_flutter: ^8.5.0
+  provider: ^4.0.4
+  cloud_firestore: ^0.13.0+1
+  cached_network_image: ^2.0.0
+  intl: ^0.16.1
+  flutter_dialogs: ^1.0.2
+  flutter_speed_dial: ^1.2.5
+  undraw: ^1.0.2
+  enum_to_string: ^1.0.9
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: AppFont
+      fonts:
+        - asset: assets/fonts/font_light.ttf
+          weight: 300
+        - asset: assets/fonts/font_regular.ttf
+        - asset: assets/fonts/font_bold.ttf
+          weight: 700
