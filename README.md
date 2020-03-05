@@ -4,9 +4,9 @@
 
 Collection of Flutter Apps
 
-|Flutter Moviehub|Flutter Firestore CRUD|
-|---|---|
-|<img src="flutter_moviehub/.github/demo_1.gif" width="200" height="400" />|<img src="flutter_firestore_crud/.github/demo_1.gif" width="200" height="400" />|
+| Flutter Moviehub                                                           | Flutter Firestore CRUD                                                           |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| <img src=".github/flutter_moviehub/demo_1.gif" width="200" height="400" /> | <img src=".github/flutter_firestore_crud/demo_1.gif" width="200" height="400" /> |
 
 ## Example Apps
 1. [Flutter Moviehub](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_moviehub)
