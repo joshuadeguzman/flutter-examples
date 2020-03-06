@@ -287,30 +287,7 @@ class _EventFormScreenState extends State<EventFormScreen> {
   }
 
   void _submitForm() {
-    if (_eventFormKey.currentState.validate()) {
-      String _eventId = "";
-      if(_args != null && _args.event != null) _eventId = _args.event.id;
-
-      Event _tempEvent = Event(
-        id: _eventId,
-        title: _titleTextEditingController.text,
-        description: _descriptionTextEditingController.text,
-        eventType: EnumToString.parse(_eventType),
-        // TODO: Convert to calendar selection
-        timestamp: Timestamp.fromDate(DateTime.now()),
-      );
-
-      switch (_args.eventFormState) {
-        case EventFormState.ADD:
-          _eventsNotifer.createNewEvent(_tempEvent);
-          break;
-        case EventFormState.EDIT:
-          _eventsNotifer.updateEventDetails(_tempEvent);
-          break;
-      }
-
-      _showSubmitDialog();
-    }
+    // TODO: Add implementation here
   }
 
   void _showSubmitDialog() {

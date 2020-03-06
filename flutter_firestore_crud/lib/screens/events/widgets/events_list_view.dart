@@ -40,32 +40,7 @@ class _EventsListViewState extends State<EventsListView> {
 
     return Container(
       height: height,
-      child: StreamBuilder(
-        stream: _eventsNotifer.streamEvents(),
-        builder: (
-          BuildContext context,
-          AsyncSnapshot<QuerySnapshot> snapshot,
-        ) {
-          if (snapshot.hasData && snapshot.data.documents.length > 0) {
-            _events = snapshot.data.documents
-                .map((item) => Event.fromMap(item.data, item.documentID))
-                .toList();
-            return ListView.builder(
-              itemCount: _events.length,
-              itemBuilder: (context, position) {
-                return _EventsListItemView(
-                  event: _events[position],
-                  onRsvpClick: _onRsvpClicked,
-                );
-              },
-            );
-          } else {
-            return Center(
-              child: Text("No events found."),
-            );
-          }
-        },
-      ),
+      child: Container(),
     );
   }
 }

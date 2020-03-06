@@ -200,66 +200,10 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
   }
 
   void _showDeleteDialog() {
-    setState(() {
-      showPlatformDialog(
-        context: context,
-        builder: (_) => BasicDialogAlert(
-          title: Text("Confirm deletion"),
-          content: Text(
-            "This will delete the event \"${_args.event.title}\".\n\nPress \"Confirm\" to continue.",
-          ),
-          actions: <Widget>[
-            BasicDialogAction(
-              title: Text(
-                "Cancel",
-                style: TextStyle(color: Colors.grey),
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-            BasicDialogAction(
-              title: Text(
-                "Confirm",
-                style: TextStyle(color: Colors.red),
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-                _confirmEventDeletion();
-              },
-            ),
-          ],
-        ),
-      );
-    });
+    // TODO: Add implementation here
   }
 
   void _confirmEventDeletion() async {
-    await _eventsNotifer.deleteEvent(_args.event);
-
-    setState(() {
-      showPlatformDialog(
-        context: context,
-        builder: (_) => BasicDialogAlert(
-          title: Text("Success"),
-          content: Text(
-            "The event \"${_args.event.title}\" was successfully removed from your events dashboard.",
-          ),
-          actions: <Widget>[
-            BasicDialogAction(
-              title: Text(
-                "Close",
-              ),
-              onPressed: () {
-                Navigator.popUntil(
-                  context,
-                  ModalRoute.withName(DashboardScreen.routeName),
-                );
-              },
-            ),
-          ],
-        ),
-      );
-    });
+    // TODO: Add implementation here
   }
 }

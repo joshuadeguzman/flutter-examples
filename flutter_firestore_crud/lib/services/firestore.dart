@@ -12,27 +12,5 @@ class FirestoreApi {
     _collectionReference = _firestore.collection(collectionPath);
   }
 
-  Stream<QuerySnapshot> streamCollection() {
-    return _collectionReference.getDocuments().asStream();
-  }
-
-  Future<QuerySnapshot> getCollection() {
-    return _collectionReference.getDocuments();
-  }
-
-  Future<DocumentSnapshot> getDocumentById(String id) {
-    return _collectionReference.document(id).get();
-  }
-
-  Future<DocumentReference> addDocument(Map data) {
-    return _collectionReference.add(data);
-  }
-
-  Future<DocumentReference> updateDocument(String id, Map data) {
-    return _collectionReference.document(id).updateData(data);
-  }
-
-  Future<void> deleteDocument(String id) {
-    return _collectionReference.document(id).delete();
-  }
+  // TODO: Add implementation here
 }

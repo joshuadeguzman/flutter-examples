@@ -15,33 +15,5 @@ class EventsNotifer extends ChangeNotifier {
     _api = api;
   }
 
-  Future<List<Event>> getEvents() async {
-    QuerySnapshot result = await _api.getCollection();
-    _events = result.documents
-        .map((document) => Event.fromMap(document.data, document.documentID))
-        .toList();
-    return _events;
-  }
-
-  Future<Event> createNewEvent(Event event) async {
-    Map data = event.toJson();
-    DocumentReference document = await _api.addDocument(data);
-    return Event.fromMap(data, document.documentID);
-  }
-
-  Future<Event> updateEventDetails(Event event) async {
-    Map data = event.toJson();
-    DocumentReference document = await _api.updateDocument(event.id, data);
-    return Event.fromMap(data, document.documentID);
-  }
-
-  Future<Event> deleteEvent(Event event) async {
-    Map data = event.toJson();
-    await _api.deleteDocument(event.id);
-    return Event.fromMap(data, event.id);
-  }
-
-  Stream<QuerySnapshot> streamEvents() {
-    return _api.streamCollection();
-  }
+  // TODO: Add implementation here
 }
