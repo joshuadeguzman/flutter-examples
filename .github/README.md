@@ -4,15 +4,47 @@
 
 Collection of Flutter Apps
 
-| Flutter Moviehub                                                   | Flutter Firestore CRUD                                                   | Flutter Persistence                                                   |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------------ | --------------------------------------------------------------------- |
-| <img src="flutter_moviehub/demo_1.gif" width="200" height="400" /> | <img src="flutter_firestore_crud/demo_1.gif" width="200" height="400" /> | <img src="flutter_persistence/demo_1.gif" width="200" height="400" /> |
+| Flutter Moviehub                                                   | Flutter Firestore CRUD                                                   |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| <img src="flutter_moviehub/demo_1.gif" width="200" height="400" /> | <img src="flutter_firestore_crud/demo_1.gif" width="200" height="400" /> |
 
-## Example Apps
+
+| Flutter Persistence                                                   | Flutter Nike Shop
+| ------------------------------------------------------------------------ | --------------------------------------------------------------------- |
+| <img src="flutter_persistence/demo_1.gif" width="200" height="400" /> | <img src="flutter_protopie_nike_shop/demo_1.gif" width="200" height="400" /> |
+
+## Example apps
 
 1. [Flutter Moviehub](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_moviehub)
 2. [Flutter Firestore CRUD](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_firestore_crud)
 3. [Flutter Persistence (Local Data and Secure Storage)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_persistence)
+3. [Flutter Protopie Nike Shop (Local Data and Secure Storage)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_protopie_nike_shop)
+
+## Setup
+
+Clone the repo
+
+```
+$ git clone https://github.com/joshuadeguzman/flutter-examples
+```
+
+Select a project
+
+```
+$ cd <project_name>
+```
+
+Install dependencies
+
+```
+$ flutter packages get
+```
+
+Run the app
+
+```
+$ flutter run -v
+```
 
 ## Contact
 
@@ -27,6 +59,10 @@ Collection of Flutter Apps
 
 - Github [@joshuadeguzman](https://github.com/joshuadeguzman)
 - Medium [@joshua.deguzman](https://medium.com/@joshua.deguzman)
+
+## Credits
+
+- [Protopie Nike by Xavier Lacoste](https://cloud.protopie.io/p/j2Fusg5L7dg)
 
 ## License
 
