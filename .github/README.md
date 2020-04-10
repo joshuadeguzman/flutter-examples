@@ -18,7 +18,7 @@ Collection of Flutter Apps
 1. [Flutter Moviehub](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_moviehub)
 2. [Flutter Firestore CRUD](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_firestore_crud)
 3. [Flutter Persistence (Local Data and Secure Storage)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_persistence)
-3. [Flutter Protopie Nike Shop (Local Data and Secure Storage)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_protopie_nike_shop)
+3. [Flutter Protopie Nike Shop (Animated Transition)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_protopie_nike_shop)
 
 ## Setup
 
