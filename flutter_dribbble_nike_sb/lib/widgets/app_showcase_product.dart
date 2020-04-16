@@ -4,7 +4,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_dribbble_nike_sb/common/constants/constants.dart';
-import 'package:flutter_dribbble_nike_sb/widgets/app_network_image.dart';
 
 class AppShowCaseProduct extends StatelessWidget {
   final double productSize;
@@ -20,8 +19,8 @@ class AppShowCaseProduct extends StatelessWidget {
       duration: Duration(milliseconds: 500),
       height: productSize * 10,
       curve: Curves.fastLinearToSlowEaseIn,
-      child: AppNetworkImage(
-        imagePath: AssetConstants.nikeSb1,
+      child: Image.network(
+        AssetConstants.nikeSb1,
       ),
     );
   }

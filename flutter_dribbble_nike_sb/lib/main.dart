@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dribbble_nike_sb/common/constants/constants.dart';
 import 'package:flutter_dribbble_nike_sb/widgets/app_cta_button.dart';
-import 'package:flutter_dribbble_nike_sb/widgets/app_network_image.dart';
 import 'package:flutter_dribbble_nike_sb/widgets/app_showcase_product.dart';
 import 'package:flutter_dribbble_nike_sb/widgets/app_slider.dart';
 
@@ -480,15 +479,21 @@ class _MyHomePageState extends State<MyHomePage>
                                           width: 75,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
+                                            border: Border.all(
+                                              width: 5,
+                                              color: Colors.black87,
+                                            ),
                                             borderRadius: BorderRadius.all(
                                               Radius.circular(37.5),
                                             ),
-                                            border: Border.all(
-                                                width: 5,
-                                                color: Colors.black87),
                                           ),
-                                          child: AppNetworkImage(
-                                            imagePath: AssetConstants.nikeShowcase1,
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(37.5),
+                                            ),
+                                            child: Image.network(
+                                              AssetConstants.nikeShowcase1,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -499,15 +504,21 @@ class _MyHomePageState extends State<MyHomePage>
                                           width: 75,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
+                                            border: Border.all(
+                                              width: 5,
+                                              color: Colors.black87,
+                                            ),
                                             borderRadius: BorderRadius.all(
                                               Radius.circular(37.5),
                                             ),
-                                            border: Border.all(
-                                                width: 5,
-                                                color: Colors.black87),
                                           ),
-                                          child: AppNetworkImage(
-                                            imagePath: AssetConstants.nikeShowcase2,
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(37.5),
+                                            ),
+                                            child: Image.network(
+                                              AssetConstants.nikeShowcase2,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -518,15 +529,21 @@ class _MyHomePageState extends State<MyHomePage>
                                           width: 75,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
+                                            border: Border.all(
+                                              width: 5,
+                                              color: Colors.black87,
+                                            ),
                                             borderRadius: BorderRadius.all(
                                               Radius.circular(37.5),
                                             ),
-                                            border: Border.all(
-                                                width: 5,
-                                                color: Colors.black87),
                                           ),
-                                          child: AppNetworkImage(
-                                            imagePath: AssetConstants.nikeShowcase3,
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(37.5),
+                                            ),
+                                            child: Image.network(
+                                              AssetConstants.nikeShowcase3,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -537,15 +554,21 @@ class _MyHomePageState extends State<MyHomePage>
                                           width: 75,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
+                                            border: Border.all(
+                                              width: 5,
+                                              color: Colors.black87,
+                                            ),
                                             borderRadius: BorderRadius.all(
                                               Radius.circular(37.5),
                                             ),
-                                            border: Border.all(
-                                                width: 5,
-                                                color: Colors.black87),
                                           ),
-                                          child: AppNetworkImage(
-                                            imagePath: AssetConstants.nikeShowcase4,
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(37.5),
+                                            ),
+                                            child: Image.network(
+                                              AssetConstants.nikeShowcase4,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -575,9 +598,7 @@ class _MyHomePageState extends State<MyHomePage>
                                 child: SizedBox(
                                   height: 100,
                                   width: 100,
-                                  child: AppNetworkImage(
-                                    imagePath: AssetConstants.nikeLogo,
-                                  ),
+                                  child: Image.network(AssetConstants.nikeLogo),
                                 ),
                               ),
                             ),
