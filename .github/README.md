@@ -23,7 +23,7 @@ Collection of Flutter Apps
 2. [Flutter Firestore CRUD](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_firestore_crud)
 3. [Flutter Persistence (Local Data and Secure Storage)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_persistence)
 4. [Flutter Protopie Nike Shop (Animated Transition)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_protopie_nike_shop)
-5. [Flutter Dribbble Nike Sb (Animated Transition)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_dribbble_nike_sb)
+5. [Flutter Dribbble Nike Sb (Staggered Animations)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_dribbble_nike_sb)
 
 ## Setup
 
