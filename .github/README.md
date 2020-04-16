@@ -68,6 +68,7 @@ $ flutter run -v
 ## Credits
 
 - [Protopie Nike by Xavier Lacoste](https://cloud.protopie.io/p/j2Fusg5L7dg)
+- [Nike SB by Dimest](https://dribbble.com/shots/4322176-Nike-SB)
 
 ## License
 
