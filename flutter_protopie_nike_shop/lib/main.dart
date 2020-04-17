@@ -400,15 +400,19 @@ class _PageItemViewState extends State<PageItemView> {
                             ),
                           ),
                         ),
-                        Container(
-                          height: 48,
-                          width: 48,
-                          color: Color(0xFF232323),
-                          child: Icon(
-                            Icons.add,
-                            color: Colors.white30,
+                        // https://github.com/flutter/flutter/issues/55031
+                        Opacity(
+                          opacity: 0.99,
+                          child: Container(
+                            height: 48,
+                            width: 48,
+                            color: Color(0xFF232323),
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.white30,
+                            ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
