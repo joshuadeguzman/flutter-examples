@@ -50,6 +50,18 @@ Run the app
 $ flutter run -v
 ```
 
+## Deploy
+
+Deploy server via Heroku CLI
+
+```
+$ heroku login
+$ cd backend
+$ heroku create
+```
+
+Read more [here](https://devcenter.heroku.com/articles/heroku-cli).
+
 ## Contact
 
 ### Let's connect
