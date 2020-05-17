@@ -13,9 +13,9 @@ Collection of Flutter Apps
 | ------------------------------------------------------------------------ | --------------------------------------------------------------------- |
 | <img src="flutter_persistence/demo_1.gif" width="200" height="400" /> | <img src="flutter_protopie_nike_shop/demo_1.gif" width="200" height="400" /> |
 
-| Flutter Nike Sb | Neighbourly Chat |
+| Flutter Nike Sb | [Neighbourly Chat](https://github.com/joshuadeguzman/neighbourly-chat) |
 | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| <img src="flutter_dribbble_nike_sb/demo_1.gif" width="350" height="250" /> | <img src="neighbourly_chat/demo_1.gif" width="350" height="375" /> |
+| <img src="flutter_dribbble_nike_sb/demo_1.gif" width="350" height="250" /> | <img src="neighbourly_chat/demo_1.gif" width="350" height="350" /> |
 
 ## Example apps
 
