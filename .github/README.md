@@ -4,18 +4,18 @@
 
 Collection of Flutter Apps
 
-| Flutter Moviehub                                                   | Flutter Firestore CRUD                                                   |
+| Flutter Moviehub | Flutter Firestore CRUD |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------------ |
 | <img src="flutter_moviehub/demo_1.gif" width="200" height="400" /> | <img src="flutter_firestore_crud/demo_1.gif" width="200" height="400" /> |
 
 
-| Flutter Persistence                                                   | Flutter Nike Shop
+| Flutter Persistence | Flutter Nike Shop |
 | ------------------------------------------------------------------------ | --------------------------------------------------------------------- |
 | <img src="flutter_persistence/demo_1.gif" width="200" height="400" /> | <img src="flutter_protopie_nike_shop/demo_1.gif" width="200" height="400" /> |
 
-| Flutter Nike Sb                                                   | 
-| ------------------------------------------------------------------------ |
-| <img src="flutter_dribbble_nike_sb/demo_1.gif" width="275" height="205" /> |
+| Flutter Nike Sb | Neighbourly Chat |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| <img src="flutter_dribbble_nike_sb/demo_1.gif" width="350" height="250" /> | <img src="neighbourly_chat/demo_1.gif" width="350" height="375" /> |
 
 ## Example apps
 
@@ -24,6 +24,7 @@ Collection of Flutter Apps
 3. [Flutter Persistence (Local Data and Secure Storage)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_persistence)
 4. [Flutter Protopie Nike Shop (Animated Transition)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_protopie_nike_shop)
 5. [Flutter Dribbble Nike Sb (Staggered Animations)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_dribbble_nike_sb)
+5. [Neighbourly Chat (Real-time chat application powered by Socket.io)](https://github.com/joshuadeguzman/flutter-examples/tree/neighbourly_chat)
 
 ## Setup
 
