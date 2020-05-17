@@ -24,7 +24,7 @@ Collection of Flutter Apps
 3. [Flutter Persistence (Local Data and Secure Storage)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_persistence)
 4. [Flutter Nike Shop (Cube Transform Effect)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_protopie_nike_shop)
 5. [Flutter Nike Sb Showcase (Staggered Animations)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_dribbble_nike_sb)
-5. [Neighbourly Chat (Real-time chat application powered by Socket.io)](https://github.com/joshuadeguzman/flutter-examples/tree/neighbourly_chat)
+5. [Neighbourly Chat (Real-time chat application powered by socket.io)](https://github.com/joshuadeguzman/flutter-examples/tree/neighbourly_chat)
 
 ## Setup
 
