@@ -17,6 +17,10 @@ Collection of Flutter Apps
 | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
 | <img src="flutter_dribbble_nike_sb/demo_1.gif" width="350" height="250" /> | <img src="neighbourly_chat/demo_1.gif" width="350" height="350" /> |
 
+| [Nutshell](https://joshuadeguzman.net/talks/flutter-staggered-animations/) |
+| ------------------------------------------------------------------------
+| <img src="flutter_staggered_animations/demo_2.gif" width="200" height="400" />
+
 ## Example apps
 
 1. [Flutter Moviehub](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_moviehub)
@@ -25,6 +29,7 @@ Collection of Flutter Apps
 4. [Flutter Nike Shop (Cube Transform Effect)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_protopie_nike_shop)
 5. [Flutter Nike Sb Showcase (Staggered Animations)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_dribbble_nike_sb)
 6. [Neighbourly Chat (Real-time chat application powered by socket.io)](https://github.com/joshuadeguzman/flutter-examples/tree/neighbourly_chat)
+6. [Nutshell (Flutter Staggered Animations)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_staggered_animations)
 
 ## Setup
 
