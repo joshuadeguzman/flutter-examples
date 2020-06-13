@@ -19,7 +19,7 @@ Collection of Flutter Apps
 
 | [Nutshell](https://joshuadeguzman.net/talks/flutter-staggered-animations/) | [Simple Course App (TechPH.org)](https://github.com/joshuadeguzman/techph_course_app/) |
 | ------------------------------------------------------------------------| ------------------------------------------------------------------------|
-| <img src="flutter_staggered_animations/demo_2.gif" width="200" height="400" />|<img src="simple_course_app/demo_1.gif" width="200" height="400" />
+| <img src="flutter_staggered_animations/demo_2.gif" width="225" height="400" />|<img src="simple_course_app/demo_1.gif" width="225" height="400" />
 
 ## Example apps
 
