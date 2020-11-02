@@ -4,22 +4,25 @@
 
 Collection of Flutter Apps
 
-| Flutter Moviehub | Flutter Firestore CRUD |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| <img src="flutter_moviehub/demo_1.gif" width="200" height="400" /> | <img src="flutter_firestore_crud/demo_1.gif" width="200" height="400" /> |
+| Flutter Game Center                        |
+| ------------------------------------------ |
+| <img src="flutter_game_center/demo_1.png"> |
 
-
-| Flutter Persistence | [Flutter Nike Shop](https://codepen.io/joshuadeguzman/pen/jObrzJB) |
-| ------------------------------------------------------------------------ | --------------------------------------------------------------------- |
+| Flutter Persistence                                                   | [Flutter Nike Shop](https://codepen.io/joshuadeguzman/pen/jObrzJB)           |
+| --------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | <img src="flutter_persistence/demo_1.gif" width="200" height="400" /> | <img src="flutter_protopie_nike_shop/demo_1.gif" width="200" height="400" /> |
 
-| [Flutter Nike Sb Showcase](https://codepen.io/joshuadeguzman/pen/BaojbKo) | [Neighbourly Chat](https://github.com/joshuadeguzman/neighbourly-chat) |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| <img src="flutter_dribbble_nike_sb/demo_1.gif" width="350" height="250" /> | <img src="neighbourly_chat/demo_1.gif" width="350" height="350" /> |
+| [Flutter Nike Sb Showcase](https://codepen.io/joshuadeguzman/pen/BaojbKo)  | [Neighbourly Chat](https://github.com/joshuadeguzman/neighbourly-chat) |
+| -------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| <img src="flutter_dribbble_nike_sb/demo_1.gif" width="350" height="250" /> | <img src="neighbourly_chat/demo_1.gif" width="350" height="350" />     |
 
-| [Nutshell](https://joshuadeguzman.net/talks/flutter-staggered-animations/) | [Simple Course App (TechPH.org)](https://github.com/joshuadeguzman/techph_course_app/) |
-| ------------------------------------------------------------------------| ------------------------------------------------------------------------|
-| <img src="flutter_staggered_animations/demo_2.gif" width="225" height="400" />|<img src="simple_course_app/demo_1.gif" width="225" height="400" />
+| [Nutshell](https://joshuadeguzman.net/talks/flutter-staggered-animations/)     | [Simple Course App (TechPH.org)](https://github.com/joshuadeguzman/techph_course_app/) |
+| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
+| <img src="flutter_staggered_animations/demo_2.gif" width="225" height="400" /> | <img src="simple_course_app/demo_1.gif" width="225" height="400" />                    |
+
+| Flutter Moviehub                                                   | Flutter Firestore CRUD                                                   |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| <img src="flutter_moviehub/demo_1.gif" width="200" height="400" /> | <img src="flutter_firestore_crud/demo_1.gif" width="200" height="400" /> |
 
 ## Example apps
 
@@ -29,8 +32,9 @@ Collection of Flutter Apps
 4. [Flutter Nike Shop (Cube Transform Effect)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_protopie_nike_shop)
 5. [Flutter Nike Sb Showcase (Staggered Animations)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_dribbble_nike_sb)
 6. [Neighbourly Chat (Real-time chat application powered by socket.io)](https://github.com/joshuadeguzman/flutter-examples/tree/neighbourly_chat)
-6. [Nutshell (Flutter Staggered Animations)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_staggered_animations)
-6. [Simple Course App (Prototype Challenge)](https://github.com/joshuadeguzman/flutter-examples/tree/simple_course_app)
+7. [Nutshell (Flutter Staggered Animations)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_staggered_animations)
+8. [Simple Course App (Prototype Challenge)](https://github.com/joshuadeguzman/flutter-examples/tree/simple_course_app)
+9. [Flutter Game Center (Testing Strategies)](https://github.com/joshuadeguzman/flutter-examples/tree/flutter_game_center)
 
 ## Setup
 
