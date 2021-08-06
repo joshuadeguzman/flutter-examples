@@ -305,14 +305,14 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
       padding: EdgeInsets.only(left: 10, right: 10),
       child: Row(
         children: <Widget>[
-          FlatButton.icon(
-            padding: EdgeInsets.all(0),
+          TextButton.icon(
+            // padding: EdgeInsets.all(0),
             icon: Icon(
               Icons.timer,
               color: Colors.white,
               size: 16,
             ),
-            color: Colors.transparent,
+            // color: Colors.transparent,
             label: Text(
               'Watch Later',
               style: TextStyle(
@@ -323,14 +323,14 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
             ),
             onPressed: () {},
           ),
-          FlatButton.icon(
-            padding: EdgeInsets.all(0),
+          TextButton.icon(
+            // padding: EdgeInsets.all(0),
             icon: Icon(
               Icons.list,
               color: Colors.white,
               size: 16,
             ),
-            color: Colors.transparent,
+            // color: Colors.transparent,
             label: Text(
               'My List',
               style: TextStyle(
@@ -341,14 +341,14 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
             ),
             onPressed: () {},
           ),
-          FlatButton.icon(
+          TextButton.icon(
             // padding: EdgeInsets.all(0),
             icon: Icon(
               Icons.share,
               color: Colors.white,
               size: 16,
             ),
-            color: Colors.transparent,
+            // color: Colors.transparent,
             label: Text(
               'Share',
               style: TextStyle(

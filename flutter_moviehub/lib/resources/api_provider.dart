@@ -13,7 +13,8 @@ class ApiProvider {
   final baseUrl = 'https://api.themoviedb.org/3/movie';
 
   Future<MovieList> getMovies(String type) async {
-    final response = await client.get('$baseUrl/$type?api_key=$apiKey');
+    var url = Uri.parse('$baseUrl/$type?api_key=$apiKey');
+    final response = await client.get(url);
     if (response.statusCode == HttpStatus.ok) {
       print(response.request.url.toString());
       return MovieList(json.decode(response.body));
@@ -23,7 +24,8 @@ class ApiProvider {
   }
 
   Future<Movie> getMovie(int movieId) async {
-    final response = await client.get('$baseUrl/$movieId?api_key=$apiKey');
+    var url = Uri.parse('$baseUrl/$movieId?api_key=$apiKey');
+    final response = await client.get(url);
     if (response.statusCode == HttpStatus.ok) {
       print(response.request.url.toString());
       return Movie(json.decode(response.body));
@@ -33,7 +35,8 @@ class ApiProvider {
   }
 
   Future<TrailerList> getMovieTrailers(int movieId) async {
-    final response = await client.get('$baseUrl/$movieId/videos?api_key=$apiKey');
+    var url = Uri.parse('$baseUrl/$movieId/videos?api_key=$apiKey');
+    final response = await client.get(url);
     if(response.statusCode == HttpStatus.ok) {
       print(response.request.url.toString());
       return TrailerList(json.decode(response.body));
