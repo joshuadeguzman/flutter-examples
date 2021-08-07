@@ -9,9 +9,9 @@ class AppCtaButton extends StatefulWidget {
   final Function(bool isTapped) onCtaTap;
 
   const AppCtaButton({
-    Key key,
-    @required this.title,
-    this.onCtaTap,
+    Key? key,
+    /*required*/ required this.title,
+    required this.onCtaTap,
   }) : super(key: key);
 
   @override
@@ -22,7 +22,7 @@ class AppCtaButton extends StatefulWidget {
 
 class _AppCtaButtonState extends State<AppCtaButton> {
   String get _title => widget.title;
-  Function get _onCtaTap => widget.onCtaTap;
+  Function/*!*/ get _onCtaTap => widget.onCtaTap;
   bool _isTapped = false;
 
   @override

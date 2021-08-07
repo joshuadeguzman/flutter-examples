@@ -10,15 +10,15 @@ class AppSlider extends StatelessWidget {
   final int divisions;
   final double sliderValue;
   final List<double> sliderSteps;
-  final Function(double value) onChangedValue;
+  final Function(double value)?/*!*//*!*//*!*/ onChangedValue;
 
   const AppSlider({
-    Key key,
-    @required this.min,
-    @required this.max,
-    @required this.divisions,
-    @required this.sliderValue,
-    @required this.sliderSteps,
+    /*required*/  Key ?key,
+    /*required*/ required this.min,
+    /*required*/ required this.max,
+    /*required*/ required this.divisions,
+    /*required*/ required this.sliderValue,
+    /*required*/ required this.sliderSteps,
     this.onChangedValue,
   })  : assert(
           min != null,
@@ -62,7 +62,7 @@ class AppSlider extends StatelessWidget {
               min: min,
               max: max,
               divisions: divisions,
-              onChanged: (double value) => onChangedValue(value),
+              onChanged: (double value) => onChangedValue!(value),
             ),
           ),
         ),
