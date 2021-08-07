@@ -61,8 +61,7 @@ class ShowcaseListViewState extends State<ShowcaseListView> {
               autoPlay: true,
               autoPlayInterval: Duration(seconds: 3),
               autoPlayAnimationDuration: Duration(milliseconds: 800),
-              // autoPlayCurve: Curve.fastOutSlowIn,
-              // pauseAutoPlayOnTouch: Duration(seconds: 10),
+              autoPlayCurve: Curves.fastOutSlowIn,
               pauseAutoPlayOnTouch: true,
               enlargeCenterPage: true,
               onPageChanged: (index, reason) {
@@ -118,13 +117,11 @@ class ShowcaseListViewState extends State<ShowcaseListView> {
           Row(
             children: <Widget>[
               TextButton.icon(
-                // padding: EdgeInsets.all(0),
                 icon: Icon(
                   Icons.timer,
                   color: Colors.white,
                   size: 16,
                 ),
-                // color: Colors.transparent,
                 label: Text(
                   'Watch Later',
                   style: TextStyle(
@@ -136,13 +133,11 @@ class ShowcaseListViewState extends State<ShowcaseListView> {
                 onPressed: () {},
               ),
               TextButton.icon(
-                // padding: EdgeInsets.all(0),
                 icon: Icon(
                   Icons.info_outline,
                   color: Colors.white,
                   size: 16,
                 ),
-                // color: Colors.transparent,
                 label: Text(
                   'Info',
                   style: TextStyle(
