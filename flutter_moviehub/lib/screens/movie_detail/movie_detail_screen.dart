@@ -306,13 +306,11 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
       child: Row(
         children: <Widget>[
           TextButton.icon(
-            // padding: EdgeInsets.all(0),
             icon: Icon(
               Icons.timer,
               color: Colors.white,
               size: 16,
             ),
-            // color: Colors.transparent,
             label: Text(
               'Watch Later',
               style: TextStyle(
@@ -324,13 +322,11 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
             onPressed: () {},
           ),
           TextButton.icon(
-            // padding: EdgeInsets.all(0),
             icon: Icon(
               Icons.list,
               color: Colors.white,
               size: 16,
             ),
-            // color: Colors.transparent,
             label: Text(
               'My List',
               style: TextStyle(
@@ -342,13 +338,11 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
             onPressed: () {},
           ),
           TextButton.icon(
-            // padding: EdgeInsets.all(0),
             icon: Icon(
               Icons.share,
               color: Colors.white,
               size: 16,
             ),
-            // color: Colors.transparent,
             label: Text(
               'Share',
               style: TextStyle(
