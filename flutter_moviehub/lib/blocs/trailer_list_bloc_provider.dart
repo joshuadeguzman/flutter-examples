@@ -18,8 +18,7 @@ class TrailerListBlocProvider extends InheritedWidget {
   }
 
   static TrailerListBloc of(BuildContext context) {
-    return (context.inheritFromWidgetOfExactType(TrailerListBlocProvider)
-            as TrailerListBlocProvider)
+    return (context.dependOnInheritedWidgetOfExactType<TrailerListBlocProvider>())
         .bloc;
   }
 }
