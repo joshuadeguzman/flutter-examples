@@ -15,13 +15,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter Demo Home Page', key: null,),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, this.title}) : super(key: key);
+  MyHomePage({required Key? key, required this.title}) : super(key: key);
 
   final String? title;
 
@@ -256,6 +256,8 @@ class _MyHomePageState extends State<MyHomePage>
     );
   }
 
+ final _key = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -393,6 +395,7 @@ class _MyHomePageState extends State<MyHomePage>
                                         offset:
                                             _productSliderOffsetAnimation.value,
                                         child: AppSlider(
+                                          // key: _key,
                                           min: 39,
                                           max: 45,
                                           divisions: 6,
@@ -605,7 +608,7 @@ class _MyHomePageState extends State<MyHomePage>
                           ),
                         ],
                       );
-                    },
+                    } as Widget Function(BuildContext, Widget?),
                   ),
                 ],
               ),
