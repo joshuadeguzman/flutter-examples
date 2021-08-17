@@ -54,20 +54,22 @@ class ShowcaseListViewState extends State<ShowcaseListView> {
         children: <Widget>[
           // https://pub.dartlang.org/packages/carousel_slider
           CarouselSlider(
-            height: 175,
-            viewportFraction: 0.6,
-            enableInfiniteScroll: true,
-            autoPlay: true,
-            autoPlayInterval: Duration(seconds: 3),
-            autoPlayAnimationDuration: Duration(milliseconds: 800),
-            // autoPlayCurve: Curve.fastOutSlowIn,
-            pauseAutoPlayOnTouch: Duration(seconds: 10),
-            enlargeCenterPage: true,
-            onPageChanged: (index) {
-              var movie = movies.results[index];
-              onShowcasedMovieChanged(movie);
-            },
-            scrollDirection: Axis.horizontal,
+            options: CarouselOptions(
+              height: 175,
+              viewportFraction: 0.6,
+              enableInfiniteScroll: true,
+              autoPlay: true,
+              autoPlayInterval: Duration(seconds: 3),
+              autoPlayAnimationDuration: Duration(milliseconds: 800),
+              autoPlayCurve: Curves.fastOutSlowIn,
+              pauseAutoPlayOnTouch: true,
+              enlargeCenterPage: true,
+              onPageChanged: (index, reason) {
+                var movie = movies.results[index];
+                onShowcasedMovieChanged(movie);
+              },
+              scrollDirection: Axis.horizontal,
+            ),
             items: movies.results.map(
               (movie) {
                 return Builder(
@@ -114,14 +116,12 @@ class ShowcaseListViewState extends State<ShowcaseListView> {
           ),
           Row(
             children: <Widget>[
-              FlatButton.icon(
-                padding: EdgeInsets.all(0),
+              TextButton.icon(
                 icon: Icon(
                   Icons.timer,
                   color: Colors.white,
                   size: 16,
                 ),
-                color: Colors.transparent,
                 label: Text(
                   'Watch Later',
                   style: TextStyle(
@@ -132,14 +132,12 @@ class ShowcaseListViewState extends State<ShowcaseListView> {
                 ),
                 onPressed: () {},
               ),
-              FlatButton.icon(
-                padding: EdgeInsets.all(0),
+              TextButton.icon(
                 icon: Icon(
                   Icons.info_outline,
                   color: Colors.white,
                   size: 16,
                 ),
-                color: Colors.transparent,
                 label: Text(
                   'Info',
                   style: TextStyle(
@@ -165,20 +163,22 @@ class ShowcaseListViewState extends State<ShowcaseListView> {
   }
 
   Widget _buildShowcaseListShimmerView(BuildContext context) {
-    var shimmerResults = List<String>(3);
+    var shimmerResults = [];
     return Container(
       child: Column(
         children: <Widget>[
           CarouselSlider(
-            height: 175,
-            viewportFraction: 0.6,
-            enableInfiniteScroll: true,
-            autoPlay: true,
-            autoPlayInterval: Duration(seconds: 3),
-            autoPlayAnimationDuration: Duration(milliseconds: 800),
-            pauseAutoPlayOnTouch: Duration(seconds: 10),
-            enlargeCenterPage: true,
-            scrollDirection: Axis.horizontal,
+            options: CarouselOptions(
+              height: 175,
+              viewportFraction: 0.6,
+              enableInfiniteScroll: true,
+              autoPlay: true,
+              autoPlayInterval: Duration(seconds: 3),
+              autoPlayAnimationDuration: Duration(milliseconds: 800),
+              pauseAutoPlayOnTouch: true,
+              enlargeCenterPage: true,
+              scrollDirection: Axis.horizontal,
+            ),
             items: shimmerResults.map(
               (item) {
                 return Builder(
