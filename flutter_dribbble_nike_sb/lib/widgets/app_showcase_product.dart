@@ -9,8 +9,8 @@ class AppShowCaseProduct extends StatelessWidget {
   final double productSize;
 
   const AppShowCaseProduct({
-    Key key,
-    @required this.productSize,
+    Key? key,
+    required this.productSize,
   }) : super(key: key);
 
   @override

@@ -21,9 +21,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, this.title}) : super(key: key);
 
-  final String title;
+  final String? title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -31,21 +31,21 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation<double> _nikeLogoScaleAnimation;
-  Animation<Offset> _nikeLogoOffsetAnimation;
-  Animation<double> _leftBackgroundWidthAnimation;
-  Animation<double> _rightBackgroundWidthAnimation;
-  Animation<Offset> _productNameOffsetAnimation;
-  Animation<Offset> _productPriceOffsetAnimation;
-  Animation<Offset> _productSliderOffsetAnimation;
-  Animation<Offset> _productDescriptionOffsetAnimation;
-  Animation<Offset> _ctaOffsetAnimation;
-  Animation<Offset> _productShowcaseOffsetAnimation;
-  Animation<Offset> _display1OffsetAnimation;
-  Animation<Offset> _display2OffsetAnimation;
-  Animation<Offset> _display3OffsetAnimation;
-  Animation<Offset> _display4OffsetAnimation;
+  late AnimationController _animationController;
+  late Animation<double> _nikeLogoScaleAnimation;
+  late Animation<Offset> _nikeLogoOffsetAnimation;
+  late Animation<double> _leftBackgroundWidthAnimation;
+  late Animation<double> _rightBackgroundWidthAnimation;
+  late Animation<Offset> _productNameOffsetAnimation;
+  late Animation<Offset> _productPriceOffsetAnimation;
+  late Animation<Offset> _productSliderOffsetAnimation;
+  late Animation<Offset> _productDescriptionOffsetAnimation;
+  late Animation<Offset> _ctaOffsetAnimation;
+  late Animation<Offset> _productShowcaseOffsetAnimation;
+  late Animation<Offset> _display1OffsetAnimation;
+  late Animation<Offset> _display2OffsetAnimation;
+  late Animation<Offset> _display3OffsetAnimation;
+  late Animation<Offset> _display4OffsetAnimation;
 
   double _shoeSize = 39;
 
@@ -315,7 +315,7 @@ class _MyHomePageState extends State<MyHomePage>
                 children: [
                   AnimatedBuilder(
                     animation: _animationController,
-                    builder: (BuildContext context, Widget child) {
+                    builder: (BuildContext context, Widget? child) {
                       return Stack(
                         children: <Widget>[
                           Container(

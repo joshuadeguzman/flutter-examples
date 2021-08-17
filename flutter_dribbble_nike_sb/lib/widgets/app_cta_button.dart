@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 
 class AppCtaButton extends StatefulWidget {
   final String title;
-  final Function(bool isTapped) onCtaTap;
+  final Function(bool isTapped)? onCtaTap;
 
   const AppCtaButton({
-    Key key,
-    @required this.title,
+    Key? key,
+    required this.title,
     this.onCtaTap,
   }) : super(key: key);
 
@@ -22,7 +22,7 @@ class AppCtaButton extends StatefulWidget {
 
 class _AppCtaButtonState extends State<AppCtaButton> {
   String get _title => widget.title;
-  Function get _onCtaTap => widget.onCtaTap;
+  Function? get _onCtaTap => widget.onCtaTap;
   bool _isTapped = false;
 
   @override
@@ -34,7 +34,7 @@ class _AppCtaButtonState extends State<AppCtaButton> {
           _isTapped = !_isTapped;
         });
 
-        if (_onCtaTap != null) _onCtaTap(_isTapped);
+        if (_onCtaTap != null) _onCtaTap!(_isTapped);
       },
       child: AnimatedContainer(
         duration: Duration(milliseconds: 500),
