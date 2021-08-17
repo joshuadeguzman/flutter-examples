@@ -3,11 +3,11 @@
 // license that can be found in the LICENSE file.
 
 class Product {
-  final String title;
-  final String subtitle;
-  final String price;
-  final String category;
-  final String imageUrl;
+  final String? title;
+  final String? subtitle;
+  final String? price;
+  final String? category;
+  final String? imageUrl;
 
   Product({
     this.title,

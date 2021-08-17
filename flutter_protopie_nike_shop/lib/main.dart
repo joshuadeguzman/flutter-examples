@@ -27,9 +27,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, this.title}) : super(key: key);
 
-  final String title;
+  final String? title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -38,16 +38,16 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   List<Product> _products = [];
-  PageController _pageController;
-  double _currentPage = 0;
-  String _productCategory = 'TRAINING';
+  PageController? _pageController;
+  double? _currentPage = 0;
+  String? _productCategory = 'TRAINING';
 
-  AnimationController _animationController;
-  Animation<Offset> _searchOffsetAnimation;
-  Animation<Offset> _cartOffsetAnimation;
-  Animation<double> _nikeLogoOffsetAnimation;
-  Animation<Offset> _productBackgroundOffsetAnimation;
-  Animation<Offset> _productOffsetAnimation;
+  late AnimationController _animationController;
+  Animation<Offset>? _searchOffsetAnimation;
+  Animation<Offset>? _cartOffsetAnimation;
+  late Animation<double> _nikeLogoOffsetAnimation;
+  Animation<Offset>? _productBackgroundOffsetAnimation;
+  Animation<Offset>? _productOffsetAnimation;
 
   bool _isAnimated = false;
 
@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage>
     _pageController = PageController(initialPage: 0)
       ..addListener(() {
         setState(() {
-          _currentPage = _pageController.page;
+          _currentPage = _pageController!.page;
         });
       });
 
@@ -140,7 +140,7 @@ class _MyHomePageState extends State<MyHomePage>
       body: Center(
         child: AnimatedBuilder(
           animation: _animationController,
-          builder: (BuildContext context, Widget child) {
+          builder: (BuildContext context, Widget? child) {
             return Stack(
               children: <Widget>[
                 Column(
@@ -156,14 +156,14 @@ class _MyHomePageState extends State<MyHomePage>
                         itemBuilder: (BuildContext context, int index) {
                           _productCategory = _products[index].category;
 
-                          if (index == _currentPage.floor()) {
+                          if (index == _currentPage!.floor()) {
                             return PageItemView(
                               product: _products[index],
                               index: index,
                               page: _currentPage,
                               alignment: FractionalOffset.centerRight,
                             );
-                          } else if (index == _currentPage.floor() + 1) {
+                          } else if (index == _currentPage!.floor() + 1) {
                             return PageItemView(
                               product: _products[index],
                               index: index,
@@ -221,7 +221,7 @@ class _MyHomePageState extends State<MyHomePage>
                             }
                           },
                           child: Text(
-                            _productCategory.toUpperCase(),
+                            _productCategory!.toUpperCase(),
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.black,
@@ -254,28 +254,26 @@ class PageItemView extends StatefulWidget {
   final double _defaultProductAngle = -1;
   final Alignment _defaultAlignment = FractionalOffset.center;
 
-  final double itemHeight;
+  final double? itemHeight;
   final Product product;
   final int index;
-  final double page;
-  final double perspective;
-  final double angle;
-  final double productAngle;
-  final Alignment alignment;
+  final double? page;
+  final double? perspective;
+  final double? angle;
+  final double? productAngle;
+  final Alignment? alignment;
 
   const PageItemView({
-    Key key,
-    @required this.product,
-    @required this.index,
-    @required this.page,
+    Key? key,
+    required this.product,
+    required this.index,
+    required this.page,
     this.itemHeight,
     this.perspective,
     this.angle,
     this.productAngle,
     this.alignment,
-  })  : assert(index != null, 'index must not be null!'),
-        assert(index != null, 'page must not be null!'),
-        super(key: key);
+  })  : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -287,7 +285,7 @@ class _PageItemViewState extends State<PageItemView> {
   double get _itemHeight => widget.itemHeight ?? widget._defaultItemHeight;
   Alignment get _alignment => widget.alignment ?? widget._defaultAlignment;
   Product get _product => widget.product;
-  int get _index => widget.index ?? 0;
+  int get _index => widget.index;
   double get _page => widget.page ?? 0;
   double get _perspective => widget.perspective ?? widget._defaultPerspective;
   double get _angle => widget.angle ?? widget._defaultAngle;
@@ -299,11 +297,11 @@ class _PageItemViewState extends State<PageItemView> {
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          _alignment != null
+          _alignment == FractionalOffset(0.0, 0.5)
               ? Transform(
                   transform: Matrix4.identity()
                     ..setEntry(3, 2, _perspective)
-                    ..scale(1 - lerpDouble(0, -0.25, _index - _page))
+                    ..scale(1 - lerpDouble(0, -0.25, _index - _page)!)
                     ..rotateY(_angle * (_page - _index)),
                   alignment: _alignment,
                   child: _buildBackground(_itemHeight),
@@ -318,7 +316,7 @@ class _PageItemViewState extends State<PageItemView> {
                 child: Center(
                   child: Transform.rotate(
                     angle: 276,
-                    child: Image.network(_product.imageUrl),
+                    child: Image.network(_product.imageUrl!),
                   ),
                 ),
               ),
@@ -356,7 +354,7 @@ class _PageItemViewState extends State<PageItemView> {
               child: Padding(
                 padding: const EdgeInsets.only(top: 32.0),
                 child: Text(
-                  _product.title.toUpperCase(),
+                  _product.title!.toUpperCase(),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,
@@ -374,7 +372,7 @@ class _PageItemViewState extends State<PageItemView> {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 32.0),
                     child: Text(
-                      _product.subtitle.toUpperCase(),
+                      _product.subtitle!.toUpperCase(),
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.black,
@@ -391,7 +389,7 @@ class _PageItemViewState extends State<PageItemView> {
                       children: <Widget>[
                         Expanded(
                           child: Text(
-                            _product.price.toUpperCase(),
+                            _product.price!.toUpperCase(),
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.white,
