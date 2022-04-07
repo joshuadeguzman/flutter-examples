@@ -17,7 +17,7 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  PageController _pageController;
+  PageController? _pageController;
 
   @override
   void initState() {

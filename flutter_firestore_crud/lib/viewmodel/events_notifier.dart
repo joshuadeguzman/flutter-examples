@@ -2,23 +2,25 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firestore_crud/models/event.dart';
 import 'package:flutter_firestore_crud/services/events_api.dart';
 
 class EventsNotifer extends ChangeNotifier {
-  EventsApi _api;
-  List<Event> _events;
+  late EventsApi _api;
+  List<Event>? _events;
 
   EventsNotifer(EventsApi api) {
     _api = api;
   }
 
-  Future<List<Event>> getEvents() async {
+  Future<List<Event>?> getEvents() async {
     QuerySnapshot result = await _api.getCollection();
     _events = result.docs
-        .map((document) => Event.fromMap(document.data(), document.id))
+        .map((document) => Event.fromMap(document.data() as Map<dynamic, dynamic>, document.id))
         .toList();
     return _events;
   }
@@ -31,7 +33,7 @@ class EventsNotifer extends ChangeNotifier {
 
   Future<Event> updateEventDetails(Event event) async {
     Map data = event.toJson();
-    DocumentReference document = await _api.updateDocument(event.id, data);
+    DocumentReference document = await (_api.updateDocument(event.id, data) as FutureOr<DocumentReference<Object>>);
     return Event.fromMap(data, document.id);
   }
 

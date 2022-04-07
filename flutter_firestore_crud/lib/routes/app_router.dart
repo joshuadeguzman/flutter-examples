@@ -18,7 +18,6 @@ class AppRouter {
           settings: RouteSettings(name: DashboardScreen.routeName),
           builder: (_) => DashboardScreen(),
         );
-        break;
       case EventDetailScreen.routeName:
         if (args is EventDetailScreenArgs) {
           return MaterialPageRoute(
@@ -28,7 +27,6 @@ class AppRouter {
         } else {
           return _showErrorRoute();
         }
-        break;
       case EventFormScreen.routeName:
         if (args is EventFormScreenArgs) {
           return MaterialPageRoute(
@@ -38,7 +36,6 @@ class AppRouter {
         } else {
           return _showErrorRoute();
         }
-        break;
       default:
         return _showErrorRoute();
     }

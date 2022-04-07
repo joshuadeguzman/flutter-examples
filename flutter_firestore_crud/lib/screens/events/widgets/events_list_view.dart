@@ -15,10 +15,10 @@ import 'package:provider/provider.dart';
 import 'package:flutter_firestore_crud/utils/extensions/string_extensions.dart';
 
 class EventsListView extends StatefulWidget {
-  final OnClickCallback<Event> onRsvpClicked;
+  final OnClickCallback<Event>? onRsvpClicked;
 
   const EventsListView({
-    Key key,
+    Key? key,
     this.onRsvpClicked,
   }) : super(key: key);
 
@@ -29,9 +29,9 @@ class EventsListView extends StatefulWidget {
 }
 
 class _EventsListViewState extends State<EventsListView> {
-  EventsNotifer _eventsNotifer;
+  late EventsNotifer _eventsNotifer;
   List<Event> _events = [];
-  OnClickCallback<Event> get _onRsvpClicked => widget.onRsvpClicked;
+  OnClickCallback<Event>? get _onRsvpClicked => widget.onRsvpClicked;
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +46,9 @@ class _EventsListViewState extends State<EventsListView> {
           BuildContext context,
           AsyncSnapshot<QuerySnapshot> snapshot,
         ) {
-          if (snapshot.hasData && snapshot.data.size > 0) {
-            _events = snapshot.data.docs
-                .map((item) => Event.fromMap(item.data(), item.id))
+          if (snapshot.hasData && snapshot.data!.size > 0) {
+            _events = snapshot.data!.docs
+                .map((item) => Event.fromMap(item.data() as Map<dynamic, dynamic>, item.id))
                 .toList();
             return ListView.builder(
               itemCount: _events.length,
@@ -72,11 +72,11 @@ class _EventsListViewState extends State<EventsListView> {
 
 class _EventsListItemView extends StatelessWidget {
   final Event event;
-  final OnClickCallback<Event> onRsvpClick;
+  final OnClickCallback<Event>? onRsvpClick;
 
   const _EventsListItemView({
-    Key key,
-    @required this.event,
+    Key? key,
+    required this.event,
     this.onRsvpClick,
   }) : super(key: key);
 
@@ -107,7 +107,7 @@ class _EventsListItemView extends StatelessWidget {
                     width: 150,
                     type: EnumToString.fromString(
                       EventType.values,
-                      event.eventType,
+                      event.eventType!,
                     ),
                   ),
                   Expanded(
@@ -115,13 +115,13 @@ class _EventsListItemView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          event.title,
+                          event.title!,
                           style: Theme.of(context).textTheme.titleMedium,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
                         ),
                         Text(
-                          event.description.substringSafe(0, 100),
+                          event.description!.substringSafe(0, 100),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(context).textTheme.bodyText2,
@@ -143,7 +143,7 @@ class _EventsListItemView extends StatelessWidget {
                             bottom: 4,
                           ),
                           child: Text(
-                            event.eventType.replaceAll("_", " "),
+                            event.eventType!.replaceAll("_", " "),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: Theme.of(context).textTheme.bodyText2,
@@ -170,7 +170,7 @@ class _EventsListItemView extends StatelessWidget {
                     child: Text('RSVP'),
                     onPressed: () {
                       if (onRsvpClick != null) {
-                        onRsvpClick(event);
+                        onRsvpClick!(event);
                       }
                     },
                   ),

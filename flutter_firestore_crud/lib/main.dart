@@ -3,14 +3,17 @@
 // license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_firestore_crud/routes/app_router.dart';
 import 'package:flutter_firestore_crud/screens/dashboard/dashboard.dart';
 import 'package:flutter_firestore_crud/services/events_api.dart';
 import 'package:flutter_firestore_crud/viewmodel/events_notifier.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: defaultFirebaseOptions);
   runApp(MyApp());
 }
 
@@ -41,3 +44,9 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+/*
+const defaultFirebaseOptions = const FirebaseOptions(
+  ...
+);
+ */

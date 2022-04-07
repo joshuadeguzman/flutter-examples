@@ -3,24 +3,23 @@
 // license that can be found in the LICENSE file.
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:meta/meta.dart';
 
 class Event {
-  String id;
-  String title;
-  String description;
-  String eventType;
-  Timestamp timestamp;
+  String? id;
+  String? title;
+  String? description;
+  String? eventType;
+  Timestamp? timestamp;
 
   Event({
     this.id,
-    @required this.title,
-    @required this.description,
-    @required this.eventType,
-    @required this.timestamp,
+    required this.title,
+    required this.description,
+    required this.eventType,
+    required this.timestamp,
   });
 
-  Event.fromMap(Map snapshot, String documentId) {
+  Event.fromMap(Map snapshot, String? documentId) {
     this.id = documentId;
     this.title = snapshot["title"];
     this.description = snapshot["description"];

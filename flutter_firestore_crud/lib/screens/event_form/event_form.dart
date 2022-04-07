@@ -20,10 +20,10 @@ enum EventFormState {
 
 class EventFormScreenArgs {
   final EventFormState eventFormState;
-  final Event event;
+  final Event? event;
 
   EventFormScreenArgs({
-    @required this.eventFormState,
+    required this.eventFormState,
     this.event,
   });
 }
@@ -34,8 +34,8 @@ class EventFormScreen extends StatefulWidget {
   final EventFormScreenArgs args;
 
   const EventFormScreen({
-    Key key,
-    @required this.args,
+    Key? key,
+    required this.args,
   }) : super(key: key);
 
   @override
@@ -45,7 +45,7 @@ class EventFormScreen extends StatefulWidget {
 }
 
 class _EventFormScreenState extends State<EventFormScreen> {
-  EventsNotifer _eventsNotifer;
+  late EventsNotifer _eventsNotifer;
 
   final GlobalKey<FormState> _eventFormKey = GlobalKey<FormState>();
   final TextEditingController _titleTextEditingController =
@@ -54,7 +54,7 @@ class _EventFormScreenState extends State<EventFormScreen> {
       TextEditingController();
 
   EventFormScreenArgs get _args => widget.args;
-  EventType _eventType = EventType.meetup;
+  EventType? _eventType = EventType.meetup;
   bool _hasEditingStarted = false;
 
   @override
@@ -64,9 +64,9 @@ class _EventFormScreenState extends State<EventFormScreen> {
     setState(() {
       _eventType = _getEventType();
 
-      if (_args != null && _args.event != null) {
-        _titleTextEditingController.text = _args.event.title;
-        _descriptionTextEditingController.text = _args.event.description;
+      if (_args.event != null) {
+        _titleTextEditingController.text = _args.event!.title!;
+        _descriptionTextEditingController.text = _args.event!.description!;
       }
     });
   }
@@ -123,7 +123,7 @@ class _EventFormScreenState extends State<EventFormScreen> {
                           style: Theme.of(context).textTheme.titleMedium,
                         ),
                         DropdownButton<String>(
-                          hint: Text(_getEventTypeStr()),
+                          hint: Text(_getEventTypeStr()!),
                           items: <String>[
                             EnumToString.convertToString(EventType.meetup),
                             EnumToString.convertToString(EventType.study_jam),
@@ -139,7 +139,7 @@ class _EventFormScreenState extends State<EventFormScreen> {
                               _hasEditingStarted = true;
                               _eventType = EnumToString.fromString(
                                 EventType.values,
-                                value,
+                                value!,
                               );
                             });
                           },
@@ -167,7 +167,7 @@ class _EventFormScreenState extends State<EventFormScreen> {
                             hintText: 'eg. Flutter Study Jam #3: Dart Vader',
                           ),
                           validator: (value) {
-                            if (value.isEmpty) {
+                            if (value!.isEmpty) {
                               return 'Required';
                             }
                             return null;
@@ -198,7 +198,7 @@ class _EventFormScreenState extends State<EventFormScreen> {
                           minLines: 5,
                           maxLines: 10,
                           validator: (value) {
-                            if (value.isEmpty) {
+                            if (value!.isEmpty) {
                               return 'Required';
                             }
                             return null;
@@ -239,38 +239,35 @@ class _EventFormScreenState extends State<EventFormScreen> {
     switch (_args.eventFormState) {
       case EventFormState.EDIT:
         return "Edit event";
-        break;
       default:
         return "Add new event";
     }
   }
 
-  String _getEventTypeStr() {
+  String? _getEventTypeStr() {
     switch (_args.eventFormState) {
       case EventFormState.EDIT:
         if (_args.event != null && _hasEditingStarted == false) {
-          return _args.event.eventType;
+          return _args.event!.eventType;
         } else {
-          return EnumToString.convertToString(_eventType) ?? "";
+          return EnumToString.convertToString(_eventType);
         }
-        break;
       default:
-        return EnumToString.convertToString(_eventType) ?? "";
+        return EnumToString.convertToString(_eventType);
     }
   }
 
-  EventType _getEventType() {
+  EventType? _getEventType() {
     switch (_args.eventFormState) {
       case EventFormState.EDIT:
         if (_args.event != null) {
           return EnumToString.fromString(
             EventType.values,
-            _args.event.eventType,
+            _args.event!.eventType!,
           );
         } else {
           return EventType.meetup;
         }
-        break;
       default:
         return EventType.meetup;
     }
@@ -280,16 +277,15 @@ class _EventFormScreenState extends State<EventFormScreen> {
     switch (_args.eventFormState) {
       case EventFormState.EDIT:
         return "Update";
-        break;
       default:
         return "Submit New Event";
     }
   }
 
   void _submitForm() {
-    if (_eventFormKey.currentState.validate()) {
-      String _eventId = "";
-      if(_args != null && _args.event != null) _eventId = _args.event.id;
+    if (_eventFormKey.currentState!.validate()) {
+      String? _eventId = "";
+      if(_args.event != null) _eventId = _args.event!.id;
 
       Event _tempEvent = Event(
         id: _eventId,
@@ -338,7 +334,6 @@ class _EventFormScreenState extends State<EventFormScreen> {
     switch (_args.eventFormState) {
       case EventFormState.EDIT:
         return "Event successfully updated!";
-        break;
       default:
         return "Event successfully submitted!";
     }
