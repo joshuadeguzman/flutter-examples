@@ -46,9 +46,9 @@ class _EventsListViewState extends State<EventsListView> {
           BuildContext context,
           AsyncSnapshot<QuerySnapshot> snapshot,
         ) {
-          if (snapshot.hasData && snapshot.data.documents.length > 0) {
-            _events = snapshot.data.documents
-                .map((item) => Event.fromMap(item.data, item.documentID))
+          if (snapshot.hasData && snapshot.data.size > 0) {
+            _events = snapshot.data.docs
+                .map((item) => Event.fromMap(item.data(), item.id))
                 .toList();
             return ListView.builder(
               itemCount: _events.length,
@@ -116,7 +116,7 @@ class _EventsListItemView extends StatelessWidget {
                       children: <Widget>[
                         Text(
                           event.title,
-                          style: Theme.of(context).textTheme.title,
+                          style: Theme.of(context).textTheme.titleMedium,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
                         ),
@@ -124,7 +124,7 @@ class _EventsListItemView extends StatelessWidget {
                           event.description.substringSafe(0, 100),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
-                          style: Theme.of(context).textTheme.body2,
+                          style: Theme.of(context).textTheme.bodyText2,
                         ),
                         Container(
                           decoration: BoxDecoration(
@@ -146,7 +146,7 @@ class _EventsListItemView extends StatelessWidget {
                             event.eventType.replaceAll("_", " "),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
-                            style: Theme.of(context).textTheme.body2,
+                            style: Theme.of(context).textTheme.bodyText2,
                           ),
                         ),
                       ],
@@ -156,7 +156,7 @@ class _EventsListItemView extends StatelessWidget {
               ),
               ButtonBar(
                 children: <Widget>[
-                  FlatButton(
+                  TextButton(
                     child: Row(
                       children: <Widget>[
                         Icon(Icons.favorite_border),
@@ -166,7 +166,7 @@ class _EventsListItemView extends StatelessWidget {
                     ),
                     onPressed: () {},
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text('RSVP'),
                     onPressed: () {
                       if (onRsvpClick != null) {

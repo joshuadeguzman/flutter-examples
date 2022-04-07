@@ -3,7 +3,7 @@
 // license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_firestore_crud/routes/router.dart';
+import 'package:flutter_firestore_crud/routes/app_router.dart';
 import 'package:flutter_firestore_crud/screens/dashboard/dashboard.dart';
 import 'package:flutter_firestore_crud/services/events_api.dart';
 import 'package:flutter_firestore_crud/viewmodel/events_notifier.dart';
@@ -15,7 +15,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  EventsApi _eventsApi = EventsApi();
+  final EventsApi _eventsApi = EventsApi();
 
   @override
   Widget build(BuildContext context) {
@@ -29,13 +29,13 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
           textTheme: TextTheme(
-            headline: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-            title: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            body1: TextStyle(fontSize: 14),
-            body2: TextStyle(fontSize: 10),
+            headline1: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+            subtitle1: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            bodyText1: TextStyle(fontSize: 14),
+            bodyText2: TextStyle(fontSize: 10),
           ),
         ),
-        onGenerateRoute: Router.generateRoute,
+        onGenerateRoute: AppRouter.generateRoute,
         initialRoute: DashboardScreen.routeName,
       ),
     );

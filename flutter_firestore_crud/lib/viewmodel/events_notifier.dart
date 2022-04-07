@@ -17,8 +17,8 @@ class EventsNotifer extends ChangeNotifier {
 
   Future<List<Event>> getEvents() async {
     QuerySnapshot result = await _api.getCollection();
-    _events = result.documents
-        .map((document) => Event.fromMap(document.data, document.documentID))
+    _events = result.docs
+        .map((document) => Event.fromMap(document.data(), document.id))
         .toList();
     return _events;
   }
@@ -26,13 +26,13 @@ class EventsNotifer extends ChangeNotifier {
   Future<Event> createNewEvent(Event event) async {
     Map data = event.toJson();
     DocumentReference document = await _api.addDocument(data);
-    return Event.fromMap(data, document.documentID);
+    return Event.fromMap(data, document.id);
   }
 
   Future<Event> updateEventDetails(Event event) async {
     Map data = event.toJson();
     DocumentReference document = await _api.updateDocument(event.id, data);
-    return Event.fromMap(data, document.documentID);
+    return Event.fromMap(data, document.id);
   }
 
   Future<Event> deleteEvent(Event event) async {

@@ -7,7 +7,7 @@ import 'package:flutter_firestore_crud/screens/dashboard/dashboard.dart';
 import 'package:flutter_firestore_crud/screens/event_detail/event_detail.dart';
 import 'package:flutter_firestore_crud/screens/event_form/event_form.dart';
 
-class Router {
+class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final args = settings.arguments;
 

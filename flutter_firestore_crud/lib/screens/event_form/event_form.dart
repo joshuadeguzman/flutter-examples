@@ -120,14 +120,14 @@ class _EventFormScreenState extends State<EventFormScreen> {
                       children: <Widget>[
                         Text(
                           "Event Type",
-                          style: Theme.of(context).textTheme.title,
+                          style: Theme.of(context).textTheme.titleMedium,
                         ),
                         DropdownButton<String>(
                           hint: Text(_getEventTypeStr()),
                           items: <String>[
-                            EnumToString.parse(EventType.meetup),
-                            EnumToString.parse(EventType.study_jam),
-                            EnumToString.parse(EventType.conference),
+                            EnumToString.convertToString(EventType.meetup),
+                            EnumToString.convertToString(EventType.study_jam),
+                            EnumToString.convertToString(EventType.conference),
                           ].map((String value) {
                             return DropdownMenuItem<String>(
                               value: value,
@@ -154,7 +154,7 @@ class _EventFormScreenState extends State<EventFormScreen> {
                       children: <Widget>[
                         Text(
                           "Event Title",
-                          style: Theme.of(context).textTheme.title,
+                          style: Theme.of(context).textTheme.titleMedium,
                         ),
                         SizedBox(height: 16),
                         TextFormField(
@@ -183,7 +183,7 @@ class _EventFormScreenState extends State<EventFormScreen> {
                       children: <Widget>[
                         Text(
                           "Event Description",
-                          style: Theme.of(context).textTheme.title,
+                          style: Theme.of(context).textTheme.titleMedium,
                         ),
                         SizedBox(height: 16),
                         TextFormField(
@@ -213,7 +213,7 @@ class _EventFormScreenState extends State<EventFormScreen> {
           ),
         ),
         persistentFooterButtons: <Widget>[
-          FlatButton(
+          TextButton(
             onPressed: () {
               Navigator.pop(context);
             },
@@ -222,7 +222,7 @@ class _EventFormScreenState extends State<EventFormScreen> {
               style: TextStyle(color: Colors.grey),
             ),
           ),
-          FlatButton(
+          TextButton(
             onPressed: () {
               _submitForm();
             },
@@ -251,11 +251,11 @@ class _EventFormScreenState extends State<EventFormScreen> {
         if (_args.event != null && _hasEditingStarted == false) {
           return _args.event.eventType;
         } else {
-          return EnumToString.parse(_eventType) ?? "";
+          return EnumToString.convertToString(_eventType) ?? "";
         }
         break;
       default:
-        return EnumToString.parse(_eventType) ?? "";
+        return EnumToString.convertToString(_eventType) ?? "";
     }
   }
 
@@ -295,7 +295,7 @@ class _EventFormScreenState extends State<EventFormScreen> {
         id: _eventId,
         title: _titleTextEditingController.text,
         description: _descriptionTextEditingController.text,
-        eventType: EnumToString.parse(_eventType),
+        eventType: EnumToString.convertToString(_eventType),
         // TODO: Convert to calendar selection
         timestamp: Timestamp.fromDate(DateTime.now()),
       );

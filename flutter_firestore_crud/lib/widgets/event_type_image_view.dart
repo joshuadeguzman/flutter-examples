@@ -4,7 +4,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_firestore_crud/resources/event_type.dart';
-import 'package:undraw/illustrations.dart';
 import 'package:undraw/undraw.dart';
 
 class EventTypeImageView extends StatelessWidget {
