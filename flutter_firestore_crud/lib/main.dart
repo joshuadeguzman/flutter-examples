@@ -11,9 +11,19 @@ import 'package:flutter_firestore_crud/services/events_api.dart';
 import 'package:flutter_firestore_crud/viewmodel/events_notifier.dart';
 import 'package:provider/provider.dart';
 
+import 'firebase_options.dart';
+
+bool USE_FIRESTORE_EMULATOR = false;
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: defaultFirebaseOptions);
+  await Firebase.initializeApp(name: "flutter_firestore_crud", options: DefaultFirebaseOptions.currentPlatform);
+
+  if (USE_FIRESTORE_EMULATOR) {
+    FirebaseFirestore.instance.settings = const Settings(
+        host: 'localhost:8080', sslEnabled: false, persistenceEnabled: false);
+  }
+
   runApp(MyApp());
 }
 
@@ -45,8 +55,3 @@ class MyApp extends StatelessWidget {
   }
 }
 
-/*
-const defaultFirebaseOptions = const FirebaseOptions(
-  ...
-);
- */
