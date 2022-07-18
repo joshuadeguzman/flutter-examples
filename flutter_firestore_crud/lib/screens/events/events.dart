@@ -32,7 +32,7 @@ class _EventScreenState extends State<EventsScreen> {
         builder: (_) => BasicDialogAlert(
           title: Text("Confirm RSVP"),
           content: Text(
-            "Would you like to confirm your RSVP to ${event.title} on ${FirestoreHelper.getReadableTime(event.timestamp)}?",
+            "Would you like to confirm your RSVP to ${event.title} on ${FirestoreHelper.getReadableTime(event.timestamp!)}?",
           ),
           actions: <Widget>[
             BasicDialogAction(

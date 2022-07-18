@@ -27,8 +27,8 @@ class EventDetailScreen extends StatefulWidget {
   final EventDetailScreenArgs args;
 
   const EventDetailScreen({
-    Key key,
-    @required this.args,
+    Key? key,
+    required this.args,
   }) : super(key: key);
 
   @override
@@ -39,7 +39,7 @@ class EventDetailScreen extends StatefulWidget {
 
 class _EventDetailScreenState extends State<EventDetailScreen> {
   EventDetailScreenArgs get _args => widget.args;
-  EventsNotifer _eventsNotifer;
+  late EventsNotifer _eventsNotifer;
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                 Navigator.pop(context);
               }),
           title: Text(
-            _args.event.title,
+            _args.event.title!,
             style: TextStyle(color: Colors.black),
           ),
           actions: <Widget>[
@@ -84,7 +84,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                       width: 300,
                       type: EnumToString.fromString(
                         EventType.values,
-                        _args.event.eventType,
+                        _args.event.eventType!,
                       ),
                     ),
                   ],
@@ -102,13 +102,13 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                         "Event",
                         style: Theme.of(context)
                             .textTheme
-                            .body1
+                            .bodyText1!
                             .copyWith(fontSize: 12, color: Colors.grey),
                       ),
                     ),
                     Text(
-                      _args.event.title,
-                      style: Theme.of(context).textTheme.title,
+                      _args.event.title!,
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 16),
@@ -116,15 +116,15 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                         "Type",
                         style: Theme.of(context)
                             .textTheme
-                            .body1
+                            .bodyText1!
                             .copyWith(fontSize: 12, color: Colors.grey),
                       ),
                     ),
                     Text(
-                      _args.event.eventType.replaceAll("_", " "),
+                      _args.event.eventType!.replaceAll("_", " "),
                       style: Theme.of(context)
                           .textTheme
-                          .body1
+                          .bodyText1!
                           .copyWith(fontSize: 16),
                     ),
                     Padding(
@@ -133,15 +133,15 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                         "Description",
                         style: Theme.of(context)
                             .textTheme
-                            .body1
+                            .bodyText1!
                             .copyWith(fontSize: 12, color: Colors.grey),
                       ),
                     ),
                     Text(
-                      _args.event.description,
+                      _args.event.description!,
                       style: Theme.of(context)
                           .textTheme
-                          .body1
+                          .bodyText1!
                           .copyWith(fontSize: 16),
                     ),
                     Padding(
@@ -150,15 +150,15 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                         "Date",
                         style: Theme.of(context)
                             .textTheme
-                            .body1
+                            .bodyText1!
                             .copyWith(fontSize: 12, color: Colors.grey),
                       ),
                     ),
                     Text(
-                      FirestoreHelper.getReadableTime(_args.event.timestamp),
+                      FirestoreHelper.getReadableTime(_args.event.timestamp!),
                       style: Theme.of(context)
                           .textTheme
-                          .body1
+                          .bodyText1!
                           .copyWith(fontSize: 16),
                     ),
                   ],
@@ -168,7 +168,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
           ),
         ),
         persistentFooterButtons: <Widget>[
-          FlatButton(
+          TextButton(
             onPressed: () {
               _showDeleteDialog();
             },
@@ -177,7 +177,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
               style: TextStyle(color: Colors.red),
             ),
           ),
-          FlatButton(
+          TextButton(
             onPressed: () {
               _showEditPage(_args.event);
             },

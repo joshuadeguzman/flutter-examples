@@ -17,7 +17,7 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  PageController _pageController;
+  PageController? _pageController;
 
   @override
   void initState() {
@@ -69,15 +69,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              title: Text("Events"),
+              label: "Events",
               icon: Icon(FontAwesomeIcons.calendar),
             ),
             BottomNavigationBarItem(
-              title: Text("Going"),
+              label: "Going",
               icon: Icon(FontAwesomeIcons.check),
             ),
             BottomNavigationBarItem(
-              title: Text("Profile"),
+              label: "Profile",
               icon: Icon(FontAwesomeIcons.user),
             ),
           ],

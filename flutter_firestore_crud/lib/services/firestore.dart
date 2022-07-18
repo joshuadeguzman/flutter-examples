@@ -5,34 +5,34 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FirestoreApi {
-  final _firestore = Firestore.instance;
-  CollectionReference _collectionReference;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  late CollectionReference _collectionReference;
 
   FirestoreApi(String collectionPath) {
     _collectionReference = _firestore.collection(collectionPath);
   }
 
   Stream<QuerySnapshot> streamCollection() {
-    return _collectionReference.getDocuments().asStream();
+    return _collectionReference.snapshots();
   }
 
   Future<QuerySnapshot> getCollection() {
-    return _collectionReference.getDocuments();
+    return _collectionReference.get();
   }
 
   Future<DocumentSnapshot> getDocumentById(String id) {
-    return _collectionReference.document(id).get();
+    return _collectionReference.doc(id).get();
   }
 
   Future<DocumentReference> addDocument(Map data) {
     return _collectionReference.add(data);
   }
 
-  Future<DocumentReference> updateDocument(String id, Map data) {
-    return _collectionReference.document(id).updateData(data);
+  Future<DocumentReference?> updateDocument(String? id, Map data) {
+    return _collectionReference.doc(id).set(data).then((value) => value as DocumentReference<Object>?);
   }
 
-  Future<void> deleteDocument(String id) {
-    return _collectionReference.document(id).delete();
+  Future<void> deleteDocument(String? id) {
+    return _collectionReference.doc(id).delete();
   }
 }

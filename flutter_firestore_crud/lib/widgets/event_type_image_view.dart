@@ -4,19 +4,18 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_firestore_crud/resources/event_type.dart';
-import 'package:undraw/illustrations.dart';
-import 'package:undraw/undraw.dart';
+import 'package:ms_undraw/ms_undraw.dart';
 
 class EventTypeImageView extends StatelessWidget {
   final double height;
   final double width;
-  final EventType type;
+  final EventType? type;
 
   const EventTypeImageView({
-    Key key,
-    @required this.height,
-    @required this.width,
-    @required this.type,
+    Key? key,
+    required this.height,
+    required this.width,
+    required this.type,
   }) : super(key: key);
 
   @override
@@ -32,17 +31,14 @@ class EventTypeImageView extends StatelessWidget {
     );
   }
 
-  UnDrawIllustration _getIllustration(EventType type) {
+  UnDrawIllustration _getIllustration(EventType? type) {
     switch (type) {
       case EventType.meetup:
         return UnDrawIllustration.community;
-        break;
       case EventType.study_jam:
         return UnDrawIllustration.studying;
-        break;
       case EventType.conference:
         return UnDrawIllustration.conference_speaker;
-        break;
       default:
         return UnDrawIllustration.not_found;
     }
