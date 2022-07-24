@@ -3,18 +3,16 @@ import 'package:google_fonts/google_fonts.dart';
 
 class UserAccount extends StatefulWidget {
   const UserAccount({
-    Key key,
-    this.isTestMode,
-    this.onTestModeChanged,
+    Key? key,
+    required this.isTestMode,
+    required this.onTestModeChanged,
   }) : super(key: key);
 
   final bool isTestMode;
   final Function(bool value) onTestModeChanged;
 
   @override
-  State<StatefulWidget> createState() {
-    return _UserAccountState();
-  }
+  State<UserAccount> createState() => _UserAccountState();
 }
 
 class _UserAccountState extends State<UserAccount> {
@@ -29,8 +27,8 @@ class _UserAccountState extends State<UserAccount> {
       margin: const EdgeInsets.only(bottom: 24),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: Color(0xFF343962),
-        boxShadow: [
+        color: const Color(0xFF343962),
+        boxShadow: const [
           BoxShadow(
             offset: Offset(5, 5),
             spreadRadius: 10,
@@ -67,8 +65,8 @@ class _UserAccountState extends State<UserAccount> {
                           fontSize: 20,
                         ),
                       ),
-                      SizedBox(height: 4),
-                      Text(
+                      const SizedBox(height: 4),
+                      const Text(
                         "Skywalker of the North",
                         style: TextStyle(
                           color: Colors.white,

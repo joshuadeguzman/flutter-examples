@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Announcements extends StatelessWidget {
+  const Announcements({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ListView(
       shrinkWrap: true,
       padding: const EdgeInsets.all(24),
-      physics: BouncingScrollPhysics(),
-      children: [
+      physics: const BouncingScrollPhysics(),
+      children: const [
         _AnnouncementsItem(
           title: "EPIC GAMES DAILY",
           description:
@@ -35,10 +37,10 @@ class Announcements extends StatelessWidget {
 
 class _AnnouncementsItem extends StatelessWidget {
   const _AnnouncementsItem({
-    Key key,
-    this.title,
-    this.description,
-    this.imagePath,
+    Key? key,
+    required this.title,
+    required this.description,
+    required this.imagePath,
     this.isCoverMode = false,
   }) : super(key: key);
 
@@ -55,8 +57,8 @@ class _AnnouncementsItem extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 24),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: Color(0xFF343962),
-          boxShadow: [
+          color: const Color(0xFF343962),
+          boxShadow: const [
             BoxShadow(
               offset: Offset(5, 5),
               spreadRadius: 10,
@@ -68,14 +70,14 @@ class _AnnouncementsItem extends StatelessWidget {
         child: Stack(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(16),
                 topRight: Radius.circular(16),
               ),
               child: Row(
                 children: [
                   Expanded(
-                    child: Container(
+                    child: SizedBox(
                       height: 165,
                       child: Image.asset(
                         imagePath,
@@ -98,14 +100,14 @@ class _AnnouncementsItem extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
                         description,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                         ),
                       ),
@@ -116,7 +118,7 @@ class _AnnouncementsItem extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
+                        const Text(
                           "10/31/2020",
                           style: TextStyle(
                             color: Color(0xFF6684E0),
@@ -128,7 +130,7 @@ class _AnnouncementsItem extends StatelessWidget {
                           onTap: () {},
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
+                            children: const [
                               Icon(
                                 Icons.thumb_up_sharp,
                                 color: Color(0xFF6684E0),
@@ -180,8 +182,8 @@ class _AnnouncementsItem extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 24),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: Color(0xFF343962),
-        boxShadow: [
+        color: const Color(0xFF343962),
+        boxShadow: const [
           BoxShadow(
             offset: Offset(5, 5),
             spreadRadius: 10,
@@ -214,10 +216,10 @@ class _AnnouncementsItem extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 12),
+                      const SizedBox(height: 12),
                       Text(
                         description,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                         ),
                       ),
@@ -232,7 +234,7 @@ class _AnnouncementsItem extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "10/31/2020",
                   style: TextStyle(
                     color: Color(0xFF6684E0),
@@ -244,7 +246,7 @@ class _AnnouncementsItem extends StatelessWidget {
                   onTap: () {},
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
+                    children: const [
                       Text(
                         "Read More",
                         style: TextStyle(

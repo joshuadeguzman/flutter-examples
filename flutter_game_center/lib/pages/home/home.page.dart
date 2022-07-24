@@ -10,14 +10,14 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
-  State<StatefulWidget> createState() {
-    return _HomePageState();
-  }
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  HomeStore store;
+  HomeStore? store;
 
   @override
   void didChangeDependencies() {
@@ -32,11 +32,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
+          SizedBox(
             height: size.height,
             width: size.width,
             child: ColorFiltered(
-              colorFilter: ColorFilter.mode(
+              colorFilter: const ColorFilter.mode(
                 Color(0xFF1D2243),
                 BlendMode.hue,
               ),
@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
             child: Container(
               height: size.height,
               width: size.width,
-              color: Color(0xFF1C2142),
+              color: const Color(0xFF1C2142),
             ),
           ),
           Container(
@@ -71,34 +71,34 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.home_filled,
                           color: Colors.white,
                           size: 24,
                         ),
                         onPressed: () {},
                       ),
-                      SizedBox(width: 24),
+                      const SizedBox(width: 24),
                       IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.mic_off,
                           color: Color(0xFFED6B74),
                           size: 24,
                         ),
                         onPressed: () {},
                       ),
-                      SizedBox(width: 24),
+                      const SizedBox(width: 24),
                       IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.gamepad,
                           color: Color(0xFF6684E0),
                           size: 24,
                         ),
                         onPressed: () {},
                       ),
-                      SizedBox(width: 24),
+                      const SizedBox(width: 24),
                       IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.explore,
                           color: Color(0xFF865dE9),
                           size: 24,
@@ -113,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                     left: 24,
                     bottom: 32,
                   ),
-                  child: GameTitle(
+                  child: const GameTitle(
                     title: "Flutter Game Center",
                   ),
                 ),
@@ -124,9 +124,9 @@ class _HomePageState extends State<HomePage> {
                       flex: 2,
                       child: Observer(
                         builder: (_) => AnimatedOpacity(
-                          opacity: store.testModeOpacity,
-                          duration: Duration(milliseconds: 250),
-                          child: Announcements(),
+                          opacity: store!.testModeOpacity,
+                          duration: const Duration(milliseconds: 250),
+                          child: const Announcements(),
                         ),
                       ),
                     ),
@@ -134,10 +134,10 @@ class _HomePageState extends State<HomePage> {
                       flex: 4,
                       child: Observer(
                         builder: (_) => AnimatedOpacity(
-                          opacity: store.testModeOpacity,
-                          duration: Duration(milliseconds: 250),
+                          opacity: store!.testModeOpacity,
+                          duration: const Duration(milliseconds: 250),
                           child: Column(
-                            children: [
+                            children: const [
                               LevelProgress(
                                 imagePath: "assets/images/dark-voyager.png",
                                 game: "Battle Royale",
@@ -171,9 +171,9 @@ class _HomePageState extends State<HomePage> {
                       child: Observer(
                         builder: (_) => Container(
                           decoration: BoxDecoration(
-                            boxShadow: store.isTestMode
+                            boxShadow: store!.isTestMode
                                 ? [
-                                    BoxShadow(
+                                    const BoxShadow(
                                       offset: Offset(0, 5),
                                       color: Colors.white10,
                                       blurRadius: 15,
@@ -187,26 +187,26 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Observer(
                                 builder: (_) => UserAccount(
-                                  isTestMode: store.isTestMode,
-                                  onTestModeChanged: store.setIsTestMode,
+                                  isTestMode: store!.isTestMode,
+                                  onTestModeChanged: store!.setIsTestMode,
                                 ),
                               ),
                               Observer(
                                 builder: (_) => Cart(
-                                  onCheckoutPressed: store.reset,
-                                  totalAmount: store.totalAmount,
-                                  itemCount: store.totalCount,
+                                  onCheckoutPressed: store!.reset,
+                                  totalAmount: store!.totalAmount,
+                                  itemCount: store!.totalCount,
                                 ),
                               ),
                               Observer(
                                 builder: (_) => ShopItems(
-                                  dotaCount: store.dotaCount,
-                                  fortniteCount: store.fortniteCount,
-                                  codCount: store.codCount,
+                                  dotaCount: store!.dotaCount,
+                                  fortniteCount: store!.fortniteCount,
+                                  codCount: store!.codCount,
                                   onAddItemPressed: (item, price) =>
-                                      store.addItem(item, price),
+                                      store!.addItem(item, price),
                                   onRemoveItemPressed: (item, price) =>
-                                      store.removeItem(item, price),
+                                      store!.removeItem(item, price),
                                 ),
                               ),
                             ],

@@ -3,17 +3,17 @@ import 'package:test/test.dart';
 
 void main() {
   group('user can checkout an item', () {
-    FlutterDriver driver;
+    FlutterDriver? driver;
 
     setUpAll(() async {
       driver = await FlutterDriver.connect();
-      await driver.waitUntilFirstFrameRasterized();
-      await driver.setSemantics(true);
+      await driver!.waitUntilFirstFrameRasterized();
+      await driver!.setSemantics(true);
     });
 
     tearDownAll(() async {
       if (driver != null) {
-        driver.close();
+        driver!.close();
       }
     });
 
@@ -27,27 +27,27 @@ void main() {
       // Act
       // TODO: For testing purposes only
       await Future.delayed(const Duration(seconds: 3), () {});
-      await driver.tap(dotaAddToCartFinder);
+      await driver!.tap(dotaAddToCartFinder);
 
       // TODO: For testing purposes only
       await Future.delayed(const Duration(seconds: 3), () {});
-      await driver.tap(dotaAddToCartFinder);
+      await driver!.tap(dotaAddToCartFinder);
 
       // TODO: For testing purposes only
       await Future.delayed(const Duration(seconds: 3), () {});
-      await driver.tap(dotaAddToCartFinder);
+      await driver!.tap(dotaAddToCartFinder);
 
       // TODO: For testing purposes only
       await Future.delayed(const Duration(seconds: 3), () {});
-      await driver.tap(dotaAddToCartFinder);
+      await driver!.tap(dotaAddToCartFinder);
 
       // TODO: For testing purposes only
       await Future.delayed(const Duration(seconds: 3), () {});
-      await driver.tap(dotaAddToCartFinder);
+      await driver!.tap(dotaAddToCartFinder);
 
       // Assert
       expect(
-        await driver.getText(checkoutAmountFinder),
+        await driver!.getText(checkoutAmountFinder),
         "\$25.0",
       );
     });

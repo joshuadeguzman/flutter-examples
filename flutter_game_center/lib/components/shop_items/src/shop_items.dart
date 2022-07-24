@@ -3,12 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 class ShopItems extends StatelessWidget {
   const ShopItems({
-    Key key,
+    Key? key,
     this.dotaCount = 0,
     this.fortniteCount = 0,
     this.codCount = 0,
-    this.onAddItemPressed,
-    this.onRemoveItemPressed,
+    required this.onAddItemPressed,
+    required this.onRemoveItemPressed,
   }) : super(key: key);
 
   // TODO: Can be made dynamic
@@ -29,9 +29,9 @@ class ShopItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         childAspectRatio: 1.1,
         crossAxisSpacing: 24,
@@ -69,12 +69,12 @@ class ShopItems extends StatelessWidget {
 
 class _ShopItem extends StatelessWidget {
   const _ShopItem({
-    Key key,
-    this.onAddItemPressed,
-    this.onRemoveItemPressed,
-    this.title,
-    this.imagePath,
-    this.price,
+    Key? key,
+    required this.onAddItemPressed,
+    required this.onRemoveItemPressed,
+    required this.title,
+    required this.imagePath,
+    required this.price,
     this.count = 0,
   }) : super(key: key);
 
@@ -97,7 +97,7 @@ class _ShopItem extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: Color(0xFF343962),
+        color: const Color(0xFF343962),
       ),
       child: Stack(
         children: [
@@ -106,7 +106,7 @@ class _ShopItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
+                SizedBox(
                   width: 120,
                   child: Image.asset(imagePath),
                 ),
@@ -127,7 +127,7 @@ class _ShopItem extends StatelessWidget {
             alignment: Alignment.topLeft,
             child: Text(
               "\$$price",
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 24,
                 color: Colors.white,
               ),
@@ -143,9 +143,9 @@ class _ShopItem extends StatelessWidget {
                   Container(
                     height: 24,
                     decoration: BoxDecoration(
-                      color: Color(0xFFF5AB35),
+                      color: const Color(0xFFF5AB35),
                       borderRadius: BorderRadius.circular(4),
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           color: Color(0xFAF5AB35),
                           offset: Offset(0, 2.5),
@@ -154,12 +154,14 @@ class _ShopItem extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: FlatButton(
+                    child: TextButton(
                       // key: ValueKey("add-to-cart-button"),
                       // TODO: For later use
                       key: ValueKey(title),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
+                      style: TextButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                        ),
                       ),
                       onPressed: () => onAddItemPressed(title, price),
                       child: Text(
@@ -172,16 +174,16 @@ class _ShopItem extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(width: 8),
+                  const SizedBox(width: 8),
                   AnimatedOpacity(
                     opacity: count > 0 ? 1 : 0,
-                    duration: Duration(milliseconds: 250),
+                    duration: const Duration(milliseconds: 250),
                     child: Container(
                       height: 24,
                       decoration: BoxDecoration(
-                        color: Color(0xFFED6B74),
+                        color: const Color(0xFFED6B74),
                         borderRadius: BorderRadius.circular(4),
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                             color: Color(0xFFED6B74),
                             offset: Offset(0, 2.5),
@@ -190,9 +192,11 @@ class _ShopItem extends StatelessWidget {
                           ),
                         ],
                       ),
-                      child: FlatButton(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 24,
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 24,
+                          ),
                         ),
                         onPressed: () => onRemoveItemPressed(title, price),
                         child: Text(

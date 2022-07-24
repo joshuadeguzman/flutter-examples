@@ -3,15 +3,15 @@ import 'package:google_fonts/google_fonts.dart';
 
 class Cart extends StatelessWidget {
   const Cart({
-    Key key,
+    Key? key,
     this.onCheckoutPressed,
-    this.totalAmount,
+    required this.totalAmount,
     this.itemCount,
   }) : super(key: key);
 
-  final VoidCallback onCheckoutPressed;
+  final VoidCallback? onCheckoutPressed;
   final double totalAmount;
-  final int itemCount;
+  final int? itemCount;
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +20,8 @@ class Cart extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 24),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: Color(0xFF343962),
-        boxShadow: [
+        color: const Color(0xFF343962),
+        boxShadow: const [
           BoxShadow(
             offset: Offset(5, 5),
             spreadRadius: 10,
@@ -34,7 +34,7 @@ class Cart extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(
+              const Icon(
                 Icons.shopping_cart,
                 size: 48,
                 color: Colors.white,
@@ -52,17 +52,17 @@ class Cart extends StatelessWidget {
                       Text(
                         "\$$totalAmount",
                         // TODO: For later use
-                        key: ValueKey("total-amount-value"),
+                        key: const ValueKey("total-amount-value"),
                         style: GoogleFonts.exo2().copyWith(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
                         ),
                       ),
-                      SizedBox(height: 4),
+                      const SizedBox(height: 4),
                       Row(
                         children: [
-                          Text(
+                          const Text(
                             "Total Items: ",
                             style: TextStyle(
                               color: Colors.white,
@@ -70,7 +70,7 @@ class Cart extends StatelessWidget {
                           ),
                           Text(
                             "$itemCount",
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                             ),
                           ),
@@ -82,9 +82,9 @@ class Cart extends StatelessWidget {
               ),
               Container(
                 decoration: BoxDecoration(
-                  color: Color(0x801DD8A1),
+                  color: const Color(0x801DD8A1),
                   borderRadius: BorderRadius.circular(4),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       color: Color(0x801DD8A1),
                       offset: Offset(0, 2.5),
@@ -93,11 +93,13 @@ class Cart extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: FlatButton(
-                  key: ValueKey("checkout-button"),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 16,
+                child: TextButton(
+                  key: const ValueKey("checkout-button"),
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 16,
+                    ),
                   ),
                   onPressed: onCheckoutPressed,
                   child: Text(

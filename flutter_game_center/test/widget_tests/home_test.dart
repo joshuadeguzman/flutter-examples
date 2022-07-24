@@ -5,7 +5,7 @@ import 'package:flutter_game_center/pages/home/stores/home.store.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
 
-Widget getMaterialWidget({Widget child}) {
+Widget getMaterialWidget({required Widget child}) {
   return MaterialApp(
     home: child,
   );
@@ -20,13 +20,13 @@ void main() {
       "update amount to \$500",
       (tester) async {
         // Arrange
-        tester.binding.window.physicalSizeTestValue = Size(
+        tester.binding.window.physicalSizeTestValue = const Size(
           SCREEN_WIDTH,
           SCREEN_HEIGHT,
         );
 
         final widget = getMaterialWidget(
-          child: Cart(
+          child: const Cart(
             totalAmount: 500,
           ),
         );
@@ -56,7 +56,7 @@ void main() {
       "tap add-to should reset the amount to zero",
       (tester) async {
         // Arrange
-        tester.binding.window.physicalSizeTestValue = Size(
+        tester.binding.window.physicalSizeTestValue = const Size(
           SCREEN_WIDTH,
           SCREEN_HEIGHT,
         );
@@ -64,7 +64,7 @@ void main() {
         final widget = getMaterialWidget(
           child: Provider(
             create: (_) => HomeStore(),
-            child: HomePage(),
+            child: const HomePage(),
           ),
         );
 
@@ -72,7 +72,8 @@ void main() {
         await tester.pumpWidget(widget);
 
         // Getting the first item in the list, i.e. Dota priced at $5
-        await tester.tap(find.byKey(ValueKey("add-to-cart-button")).first);
+        await tester
+            .tap(find.byKey(const ValueKey("add-to-cart-button")).first);
         await tester.pump();
 
         // Assert
@@ -84,7 +85,7 @@ void main() {
       "tap checkout should reset the amount to zero",
       (tester) async {
         // Arrange
-        tester.binding.window.physicalSizeTestValue = Size(
+        tester.binding.window.physicalSizeTestValue = const Size(
           SCREEN_WIDTH,
           SCREEN_HEIGHT,
         );
@@ -92,7 +93,7 @@ void main() {
         final widget = getMaterialWidget(
           child: Provider(
             create: (_) => HomeStore(),
-            child: HomePage(),
+            child: const HomePage(),
           ),
         );
 
@@ -100,10 +101,11 @@ void main() {
         await tester.pumpWidget(widget);
 
         // Getting the first item in the list, i.e. Dota priced at $5
-        await tester.tap(find.byKey(ValueKey("add-to-cart-button")).first);
+        await tester
+            .tap(find.byKey(const ValueKey("add-to-cart-button")).first);
         await tester.pump();
 
-        await tester.tap(find.byKey(ValueKey("checkout-button")));
+        await tester.tap(find.byKey(const ValueKey("checkout-button")));
         await tester.pump();
 
         // Assert

@@ -6,16 +6,16 @@ part of 'home.store.dart';
 // StoreGenerator
 // **************************************************************************
 
-// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
+// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$HomeStore on _HomeStore, Store {
-  Computed<int> _$totalCountComputed;
+  Computed<int>? _$totalCountComputed;
 
   @override
   int get totalCount => (_$totalCountComputed ??=
           Computed<int>(() => super.totalCount, name: '_HomeStore.totalCount'))
       .value;
-  Computed<double> _$testModeOpacityComputed;
+  Computed<double>? _$testModeOpacityComputed;
 
   @override
   double get testModeOpacity => (_$testModeOpacityComputed ??= Computed<double>(
@@ -23,7 +23,8 @@ mixin _$HomeStore on _HomeStore, Store {
           name: '_HomeStore.testModeOpacity'))
       .value;
 
-  final _$dotaCountAtom = Atom(name: '_HomeStore.dotaCount');
+  late final _$dotaCountAtom =
+      Atom(name: '_HomeStore.dotaCount', context: context);
 
   @override
   int get dotaCount {
@@ -38,7 +39,8 @@ mixin _$HomeStore on _HomeStore, Store {
     });
   }
 
-  final _$fortniteCountAtom = Atom(name: '_HomeStore.fortniteCount');
+  late final _$fortniteCountAtom =
+      Atom(name: '_HomeStore.fortniteCount', context: context);
 
   @override
   int get fortniteCount {
@@ -53,7 +55,8 @@ mixin _$HomeStore on _HomeStore, Store {
     });
   }
 
-  final _$codCountAtom = Atom(name: '_HomeStore.codCount');
+  late final _$codCountAtom =
+      Atom(name: '_HomeStore.codCount', context: context);
 
   @override
   int get codCount {
@@ -68,7 +71,8 @@ mixin _$HomeStore on _HomeStore, Store {
     });
   }
 
-  final _$totalAmountAtom = Atom(name: '_HomeStore.totalAmount');
+  late final _$totalAmountAtom =
+      Atom(name: '_HomeStore.totalAmount', context: context);
 
   @override
   double get totalAmount {
@@ -83,7 +87,8 @@ mixin _$HomeStore on _HomeStore, Store {
     });
   }
 
-  final _$totalItemsAtom = Atom(name: '_HomeStore.totalItems');
+  late final _$totalItemsAtom =
+      Atom(name: '_HomeStore.totalItems', context: context);
 
   @override
   double get totalItems {
@@ -98,7 +103,8 @@ mixin _$HomeStore on _HomeStore, Store {
     });
   }
 
-  final _$isTestModeAtom = Atom(name: '_HomeStore.isTestMode');
+  late final _$isTestModeAtom =
+      Atom(name: '_HomeStore.isTestMode', context: context);
 
   @override
   bool get isTestMode {
@@ -113,7 +119,8 @@ mixin _$HomeStore on _HomeStore, Store {
     });
   }
 
-  final _$_HomeStoreActionController = ActionController(name: '_HomeStore');
+  late final _$_HomeStoreActionController =
+      ActionController(name: '_HomeStore', context: context);
 
   @override
   void addItem(String item, int price) {

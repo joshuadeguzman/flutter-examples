@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class GameTitle extends StatelessWidget {
   const GameTitle({
-    Key key,
-    @required this.title,
+    Key? key,
+    required this.title,
   }) : super(key: key);
 
   final String title;

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class LevelProgress extends StatelessWidget {
   const LevelProgress({
-    Key key,
-    @required this.imagePath,
-    @required this.game,
+    Key? key,
+    required this.imagePath,
+    required this.game,
     this.trophies = 0,
     this.medals = 0,
     this.hours = 0,
@@ -20,11 +20,11 @@ class LevelProgress extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(16),
-      child: Container(
+      child: SizedBox(
         height: 250,
         child: Stack(
           children: [
-            Container(
+            SizedBox(
               width: double.infinity,
               child: Image.asset(
                 imagePath,
@@ -52,7 +52,7 @@ class LevelProgress extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             "Level Progress",
                             style: TextStyle(
                               color: Colors.white,
@@ -67,10 +67,10 @@ class LevelProgress extends StatelessWidget {
                               ],
                             ),
                           ),
-                          SizedBox(height: 4),
+                          const SizedBox(height: 4),
                           Text(
                             "in $game",
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 16,
                               shadows: [
@@ -82,9 +82,9 @@ class LevelProgress extends StatelessWidget {
                               ],
                             ),
                           ),
-                          SizedBox(height: 24),
+                          const SizedBox(height: 24),
                           Container(
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.white38,
@@ -99,7 +99,7 @@ class LevelProgress extends StatelessWidget {
                               child: Stack(
                                 children: [
                                   Container(
-                                    color: Color(0xFFA54BB9),
+                                    color: const Color(0xFFA54BB9),
                                     width: 300,
                                     height: 7.5,
                                   ),
@@ -126,13 +126,13 @@ class LevelProgress extends StatelessWidget {
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                            color: Color(0x50674C9A),
+                            color: const Color(0x50674C9A),
                             borderRadius: BorderRadius.circular(4),
                           ),
                           padding: const EdgeInsets.all(4),
                           child: Text(
                             "🏆 $trophies",
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
@@ -141,13 +141,13 @@ class LevelProgress extends StatelessWidget {
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            color: Color(0x50674C9A),
+                            color: const Color(0x50674C9A),
                             borderRadius: BorderRadius.circular(4),
                           ),
                           padding: const EdgeInsets.all(4),
                           child: Text(
                             "🥇 $medals",
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
@@ -156,13 +156,13 @@ class LevelProgress extends StatelessWidget {
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            color: Color(0x50674C9A),
+                            color: const Color(0x50674C9A),
                             borderRadius: BorderRadius.circular(4),
                           ),
                           padding: const EdgeInsets.all(4),
                           child: Text(
                             "🕒 $hours h",
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
