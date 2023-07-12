@@ -24,9 +24,9 @@ I'm excited to share with you some example apps I built with Flutter. I used mos
 
 ## Connect with me
 
-- Explore my projects or writing on [joshuamdeguzman.com](https://joshuamdeguzman.com/)
-- Subscribe on my weekly newsletter [Joshua's Pages](https://joshuamdeguzman.substack.com/)
-- Let's follow on Twitter! [@joshuamdeguzman](https://twitter.com/joshuamdeguzman)
+- Read my writing on [joshuamdeguzman.com](https://joshuamdeguzman.com/)
+- Subscribe to my weekly newsletter [Joshua's Pages](https://joshuamdeguzman.substack.com/)
+- Let's connect on Twitter [@joshuamdeguzman](https://twitter.com/joshuamdeguzman)
 
 ## License
 
